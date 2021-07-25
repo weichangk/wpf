@@ -1,0 +1,43 @@
+﻿<Window x:Class="WpfStudy._03控件布局._02StackPanel"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfStudy._03控件布局"
+        mc:Ignorable="d"
+        Title="02StackPanel" Height="600" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Border BorderBrush="SlateBlue" BorderThickness="5" Background="AliceBlue" Padding="10" CornerRadius="10">
+            <StackPanel x:Name="StackPanel1" Margin="10" Orientation="Horizontal">
+                <Label Content="Label1"></Label>
+                <Button Content="Button1" HorizontalAlignment="Left"></Button>
+                <Button Content="Button22" VerticalAlignment="Center"></Button>
+                <Button Content="Button333" Margin="10,0,10,0" MinWidth="20" MaxWidth="200"></Button>
+                <Button Content="Button4444" HorizontalAlignment="Stretch"></Button>
+            </StackPanel>
+        </Border>
+
+        <GroupBox Header="xxxx" Grid.Column="1" Margin="10">
+            <StackPanel>
+                <CheckBox Content="CheckBox1"></CheckBox>
+                <CheckBox Content="CheckBox1"></CheckBox>
+                <CheckBox Content="CheckBox1"></CheckBox>
+                <CheckBox Content="CheckBox1"></CheckBox>
+                <CheckBox Content="CheckBox1"></CheckBox>
+                <CheckBox Content="CheckBox1"></CheckBox>
+                <StackPanel Height="400"></StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                    <Button Content="清除"></Button>
+                    <Button Content="确定"></Button>
+                </StackPanel>
+            </StackPanel>
+        </GroupBox>
+    </Grid>
+
+
+</Window>
