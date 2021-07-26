@@ -165,8 +165,28 @@ StackPanel 使用3个属性来控制内部元素的布局，它们是 Orientation，HorizontalAlignm
 - VerticalAlignment 决定内部元素竖直方向上的对齐方式
 
 
+Wrapanel：自动折行面板
+- https://docs.microsoft.com/zh-cn/dotnet/api/system.windows.controls.wrappanel?view=net-5.0
+- Wraplanel 内部采用的是流式布局。WrapPanel 使用 Orientation 属性来控制流延伸的方向，使用 HorizontalAlignment 和 VerticalAlignment 两个属性控制内部控件的对齐。在流延伸的方向上，WrapPanel 会排列尽可能多的控件，排不下的控件将会新起一行或一列继续排列。
+- 03控件布局\03Wrapanel.xaml
 
+DockPanel：泊靠式面板
+- https://docs.microsoft.com/zh-cn/dotnet/api/system.windows.controls.dockpanel?view=net-5.0
+- DockPanel 内的元素会被附加上 DockPanel.Dock 这个属性，这个属性的数据类型为 Dock 枚举。Dock 枚举可取 Left、Top、Right 和 Bottom 四个值。根据 Dock 属性值, DockPanel 内的元素会向指定方向累积、切分 DockPanel 内部的剩余可用空间，就像船舶靠岸一样。
+- DockPanel 还有一个重要属性 bool类型的 LastChildFill，它的默认值是True。当 LastChildFill 属性的值为 True 时, DockPanel内最后一个元素的 DockPanel.Dock 属性值会被忽略，这个元素会把 DockPanel 内部所有剩余空间充满。这也正好解释了为什么Dock枚举类型没有Fill这个值。
+- 03控件布局\04DockPanel.xaml
 
+Canvas：画布
+- https://docs.microsoft.com/zh-cn/dotnet/api/system.windows.controls.canvas?view=net-5.0
+- Canvas 译成中文就是“画布”，显然，在 Canvas 里布局就像在画布上画控件一样。使用 Canvas 布局与在 Windows Form 窗体上布局基本上是一样的，只是在 Windows Form 开发时我们通过设置控件的 Left 和 Top 等属性来确定控件在窗体上的位置。
+- 而WPF的控件没有 Left 和 Top 等属性，就像把控件放在 Grid 里时会被附加上 Grid.Column 和 Grid.Row 属性一样，当控件被放置在 Canvas 里时就会被附加上 Canvas.X 和 Canvas.Y 属性。
+- Canvas适用的场合包括：经设计基本上不会再有改动的小型布局(如图标)。艺术性比较强的布局。需要大量使用横纵坐标进行绝对点定位的布局。依赖于横纵坐标的动画。
+- 与 Grid 一样，如果两个元素在 Canvas 内部占据相同的位置，亦是代码中后书写的元素会覆盖在先书写的元素之上。想要显露盖在下面的元素，可以在代码中修改上面元素的 Visibility 属性值或 Opacity 属性值。或设置 Canvas.ZIndex。
+- 03控件布局\05Canvas.xaml
+
+InkCanvas 定义接收和显示墨迹笔划的区域。
+- https://docs.microsoft.com/zh-cn/dotnet/api/system.windows.controls.inkcanvas?view=net-5.0
+- 03控件布局\06InkCanvas.xaml
 
 
 
