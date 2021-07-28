@@ -9,7 +9,6 @@
   <ItemGroup>
     <Folder Include="01XAML语法\" />
     <Folder Include="02X命名空间\" />
-    <Folder Include="04Binding\" />
     <Folder Include="05属性\" />
     <Folder Include="06事件\" />
     <Folder Include="07命令\" />
