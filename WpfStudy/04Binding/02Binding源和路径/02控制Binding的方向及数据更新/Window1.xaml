@@ -1,0 +1,95 @@
+﻿<Window x:Class="WpfStudy._04Binding._02Binding源和路径._02控制Binding的方向及数据更新.Window1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfStudy._04Binding._02Binding源和路径._02控制Binding的方向及数据更新"
+        mc:Ignorable="d"
+        Title="Window1" Height="300" Width="500">
+    <Grid Margin="5">
+        <TabControl>
+            <TabItem>
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Ellipse Width="10" Height="10" Fill="DarkGray"/>
+                        <TextBlock>TwoWay</TextBlock>
+                    </StackPanel>
+                </TabItem.Header>
+                <StackPanel>
+                    <!--TextBox 默认 Mode=TwoWay, UpdateSourceTrigger=LostFocus。 -->
+                    <TextBox x:Name="TxbSliderValue" Text="{Binding Path=Value, ElementName=Slider, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                    <Slider x:Name="Slider"></Slider>
+                </StackPanel>
+            </TabItem>
+            <TabItem>
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Ellipse Width="10" Height="10" Fill="DarkGray"/>
+                        <TextBlock>OneWay</TextBlock>
+                    </StackPanel>
+                </TabItem.Header>
+                <StackPanel>
+                    <!--CheckBox 默认 TwoWay、PropertyChanged。Chb1（target）和Chb2（soucre）同步-->
+                    <CheckBox x:Name="Chb1" IsChecked="{Binding Path=IsChecked, ElementName=Chb2}">CheckBox1</CheckBox>
+                    <CheckBox x:Name="Chb2">CheckBox2</CheckBox>
+                    <Button></Button>
+                    <!--设置OneWay后Chb3（target）修改不了Chb4（soucre）。 Chb4修改得Chb3-->
+                    <CheckBox x:Name="Chb3" IsChecked="{Binding Path=IsChecked, ElementName=Chb4, Mode=OneWay}">CheckBox3</CheckBox>
+                    <CheckBox x:Name="Chb4">CheckBox4</CheckBox>
+                </StackPanel>
+            </TabItem>
+            <TabItem>
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Ellipse Width="10" Height="10" Fill="DarkGray"/>
+                        <TextBlock>OneWayToSource</TextBlock>
+                    </StackPanel>
+                </TabItem.Header>
+                <StackPanel>
+                    <!--Txt1(target) 改变 Txt2(soucre)  OneWayToSource和OneWay相反-->
+                    <TextBox x:Name="Txt1" Text="{Binding Text, ElementName=Txt2, Mode=OneWayToSource}"></TextBox>
+                    <TextBox x:Name="Txt2"></TextBox>
+                </StackPanel>
+            </TabItem>
+            <TabItem>
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Ellipse Width="10" Height="10" Fill="DarkGray"/>
+                        <TextBlock>OneTime</TextBlock>
+                    </StackPanel>
+                </TabItem.Header>
+                <StackPanel>
+                    <!--Txt3(target) 由 Txt4(soucre) 初始化，但是后续 Txt4(soucre) 更改不会影响 Txt3(target)-->
+                    <TextBox x:Name="Txt3" Text="{Binding Text, ElementName=Txt4, Mode=OneTime}"></TextBox>
+                    <TextBox x:Name="Txt4">hello wrold</TextBox>
+                </StackPanel>
+            </TabItem>
+            <TabItem>
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Ellipse Width="10" Height="10" Fill="DarkGray"/>
+                        <TextBlock>Explicit</TextBlock>
+                    </StackPanel>
+                </TabItem.Header>
+                <StackPanel>
+                    <!--Txt5(target) 由 Txt6(soucre) 决定，但是Txt5(target) 要更新 Txt6(soucre)需要调用UpdateSource方法时才会触发-->
+                    <TextBox x:Name="Txt5" Text="{Binding Text, ElementName=Txt6, UpdateSourceTrigger=Explicit}"></TextBox>
+                    <TextBox x:Name="Txt6"></TextBox>
+                    <Button x:Name="BtnExplicit" Click="BtnExplicit_Click">UpdateSource</Button>
+                </StackPanel>
+            </TabItem>
+            <TabItem>
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Ellipse Width="10" Height="10" Fill="DarkGray"/>
+                        <TextBlock>NotityOnSourceUpdated</TextBlock>
+                    </StackPanel>
+                </TabItem.Header>
+                <StackPanel>
+                    <TextBox x:Name="Txt7" Text="{Binding Text, ElementName=Txt8,NotifyOnSourceUpdated=True, NotifyOnTargetUpdated=True}" SourceUpdated="Txt7_SourceUpdated" TargetUpdated="Txt7_TargetUpdated"></TextBox>
+                    <TextBox x:Name="Txt8"></TextBox>
+                </StackPanel>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>

@@ -24,6 +24,43 @@ Binding µÄÔ´Ò²¾ÍÊÇÊý¾ÝµÄÔ´Í·¡£Binding¶ÔÔ´µÄÒªÇó²¢²»¿Á¿Ì£¬Ö»ÒªËüÊÇÒ»¸ö¶ÔÏó£¬²¢ÇÒÍ
 
 ###### °Ñ¿Ø¼þ×÷ÎªBindingÔ´ÓëBinding±êÖ¾À©Õ¹
 ÔÚxamlÖÐÊ¹ÓÃBinding±êÖ¾À©Õ¹½«¿Ø¼þ×÷ÎªÆäËü¿Ø¼þµÄBindingÔ´
+´ó¶àÊý UIElement ÊôÐÔ¶¼ÊÇÒÀÀµÊôÐÔ£¬¶ø´ó¶àÊýÒÀÀµÊôÐÔ£¨Ö»¶ÁÊôÐÔ³ýÍâ£©Ä¬ÈÏÖ§³ÖÊý¾Ý°ó¶¨¡££¨½öÅÉÉú×Ô DependencyObject µÄÀàÐÍ²ÅÄÜ¶¨ÒåÒÀÀµÊôÐÔ£»ËùÓÐ UIElement ÀàÐÍ¶¼ÅÉÉú×Ô DependencyObject¡££©
 
 ###### ¿ØÖÆBindingµÄ·½Ïò¼°Êý¾Ý¸üÐÂ
-	
+¿ØÖÆ Binding Êý¾ÝÁ÷ÏòµÄÊôÐÔÊÇ Mode£¬ËüµÄÀàÐÍÊÇ BindingMode Ã¶¾Ù¡£BindingMode ¿ÉÈ¡ÖµÎª TwoWay, OneWay, OnTime£¬OneWayToSourceºÍDefault¡£
+Default ÖµÊÇÖ¸ Binding µÄÄ£Ê½»á¸ù¾ÝÄ¿±êµÄÊµ¼ÊÇé¿öÀ´È·¶¨£¬±ÈÈçÈôÊÇ¿É±à¼­µÄ(ÈçTextBox.TextÊôÐÔ), Default ¾Í²ÉÓÃË«ÏòÄ£Ê½£»ÈôÊÇÖ»¶ÁµÄ(ÈçTextBlock.Text)Ôò²ÉÓÃµ¥ÏòÄ£Ê½¡£
+
+- OneWay ¶ÔÔ´ÊôÐÔµÄ¸ü¸Ä»á×Ô¶¯¸üÐÂÄ¿±êÊôÐÔ£¬µ«¶ÔÄ¿±êÊôÐÔµÄ¸ü¸Ä²»»á´«²¥»ØÔ´ÊôÐÔ¡£ Èç¹û°ó¶¨µÄ¿Ø¼þÎªÒþÊ½Ö»¶Á£¬Ôò´ËÀàÐÍµÄ°ó¶¨ÊÊÓÃ¡£
+- TwoWay ¸ü¸ÄÔ´ÊôÐÔ»òÄ¿±êÊôÐÔÊ±»á×Ô¶¯¸üÐÂÁíÒ»·½¡£ ´ËÀàÐÍµÄ°ó¶¨ÊÊÓÃÓÚ¿É±à¼­´°Ìå»òÆäËûÍêÈ«½»»¥Ê½ UI ·½°¸¡£´ó¶àÊýÊôÐÔÄ¬ÈÏÎª OneWay °ó¶¨£¬µ«Ä³Ð©ÒÀÀµÊôÐÔ£¨Í¨³£ÎªÓÃ»§¿É±à¼­¿Ø¼þµÄÊôÐÔ£¬ÀýÈç TextBox.Text ºÍ CheckBox.IsChecked£©Ä¬ÈÏÎª TwoWay °ó¶¨¡£ ÓÃÓÚÈ·¶¨ÒÀÀµÊôÐÔ°ó¶¨ÔÚÄ¬ÈÏÇé¿öÏÂÊÇµ¥Ïò»¹ÊÇË«ÏòµÄ±à³Ì·½·¨ÊÇ£ºÊ¹ÓÃ DependencyProperty.GetMetadata »ñÈ¡ÊôÐÔÔªÊý¾Ý£¬È»ºó¼ì²é FrameworkPropertyMetadata.BindsTwoWayByDefault ÊôÐÔµÄ²¼¶ûÖµ¡£
+- OneWayToSource Óë OneWay °ó¶¨Ïà·´£»µ±Ä¿±êÊôÐÔ¸ü¸ÄÊ±£¬Ëü»á¸üÐÂÔ´ÊôÐÔ¡£ Ê¾Àý·½°¸ÊÇÖ»ÐèÒª´Ó UI ÖØÐÂ¼ÆËãÔ´ÖµµÄÇé¿ö¡£
+- OneTime »áÊ¹Ô´ÊôÐÔ³õÊ¼»¯Ä¿±êÊôÐÔ£¬µ«²»´«²¥ºóÐø¸ü¸Ä¡£ Èç¹ûÊý¾ÝÉÏÏÂÎÄ·¢Éú¸ü¸Ä£¬»òÕßÊý¾ÝÉÏÏÂÎÄÖÐµÄ¶ÔÏó·¢Éú¸ü¸Ä£¬Ôò¸ü¸Ä²»»áÔÚÄ¿±êÊôÐÔÖÐ·´Ó³¡£ Èç¹ûÊÊºÏÊ¹ÓÃµ±Ç°×´Ì¬µÄ¿ìÕÕ»òÊý¾ÝÊµ¼ÊÎª¾²Ì¬Êý¾Ý£¬Ôò´ËÀàÐÍµÄ°ó¶¨ÊÊºÏ¡£ Èç¹ûÄãÏëÊ¹ÓÃÔ´ÊôÐÔÖÐµÄÄ³¸öÖµÀ´³õÊ¼»¯Ä¿±êÊôÐÔ£¬ÇÒÌáÇ°²»ÖªµÀÊý¾ÝÉÏÏÂÎÄ£¬Ôò´ËÀàÐÍµÄ°ó¶¨Ò²ÓÐÓÃ¡£ ´ËÄ£Ê½ÊµÖÊÉÏÊÇ OneWay °ó¶¨µÄÒ»ÖÖ¼ò»¯ÐÎÊ½£¬ËüÔÚÔ´Öµ²»¸ü¸ÄµÄÇé¿öÏÂÌá¹©¸üºÃµÄÐÔÄÜ¡£
+
+´¥·¢Ô´¸üÐÂµÄÒòËØ
+TwoWay »ò OneWayToSource °ó¶¨ÕìÌýÄ¿±êÊôÐÔÖÐµÄ¸ü¸Ä£¬²¢½«¸ü¸Ä´«²¥»ØÔ´£¨³ÆÎª¸üÐÂÔ´£©¡£ÀýÈç£¬¿ÉÒÔ±à¼­ÎÄ±¾¿òµÄÎÄ±¾ÒÔ¸ü¸Ä»ù´¡Ô´Öµ¡£
+Binding.UpdateSourceTrigger ÊôÐÔÈ·¶¨´¥·¢Ô´¸üÐÂµÄÒòËØ¡£
+²»Í¬µÄÒÀÀµÊôÐÔ¾ßÓÐ²»Í¬µÄÄ¬ÈÏ UpdateSourceTrigger Öµ¡£ ´ó¶àÊýÒÀÀµÊôÐÔµÄÄ¬ÈÏÖµÎª PropertyChanged£¬¶ø TextBox.Text ÊôÐÔµÄÄ¬ÈÏÖµÎª LostFocus¡£ PropertyChanged ±íÊ¾Ô´¸üÐÂÍ¨³£ÔÚÃ¿´ÎÄ¿±êÊôÐÔ¸ü¸ÄÊ±·¢Éú¡£ ¼´Ê±¸ü¸ÄÊÊÓÃÓÚ CheckBox ºÍÆäËû¼òµ¥¿Ø¼þ¡£ µ«¶ÔÓÚÎÄ±¾×Ö¶Î£¬Ã¿´Î»÷¼üºó¶¼½øÐÐ¸üÐÂ»á½µµÍÐÔÄÜ£¬ÓÃ»§Ò²Ã»ÓÐ»ú»áÔÚÌá½»ÐÂÖµÖ®Ç°Ê¹ÓÃ Backspace ¼üÐÞ¸Ä¼üÈë´íÎó¡£
+
+- LostFocus£¨TextBox.Text µÄÄ¬ÈÏÖµ£©¡£¿Ø¼þÊ§È¥½¹µãÊ±´¥·¢¡£
+- PropertyChanged Ã¿´ÎÄ¿±êÊôÐÔ¸ü¸ÄÊ±´¥·¢¡£
+- Explicit ½öÔÚÓ¦ÓÃ³ÌÐòµ÷ÓÃUpdateSource·½·¨Ê±²Å»á´¥·¢¡£
+
+Binding »¹¾ßÓÐ NotifyOnSourceUpdated ºÍ NotifyOnTargetUpdated Á½¸ö bool ÀàÐÍµÄÊôÐÔ¡£Èç¹ûÉèÎªtrue£¬Ôòµ±Ô´»òÄ¿±ê±»¸üÐÂºó Binding »á¼¤·¢ÏàÓ¦µÄ SourceUpdated ÊÂ¼þºÍ TargetUpdated ÊÂ¼þ£¬¿ÉÒÔÍ¨¹ý¼àÌýÕâÁ½¸öÊÂ¼þÀ´ÕÒ³öÓÐÄÄÐ©Êý¾Ý»ò¿Ø¼þ±»¸üÐÂÁË¡£
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
