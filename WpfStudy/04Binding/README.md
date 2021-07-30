@@ -1,4 +1,6 @@
-### wpf
+### Binding
+https://docs.microsoft.com/zh-cn/dotnet/desktop/wpf/data/data-binding-overview?view=netframeworkdesktop-4.8
+
 WPF作为一种专门的展示层技术，华丽的外观和动画只是它的表层现象，更重要的是它在深层次上帮助程序员把思维的重心固定在了逻辑层、让展示层永远处于逻辑层的从属地位。
 WPF具有这种能力的关键是它引入了 Data Binding 概念以及与之配套的 Dependency Property 系统和 DataTemplate。
 
@@ -47,6 +49,11 @@ Binding.UpdateSourceTrigger 属性确定触发源更新的因素。
 Binding 还具有 NotifyOnSourceUpdated 和 NotifyOnTargetUpdated 两个 bool 类型的属性。如果设为true，则当源或目标被更新后 Binding 会激发相应的 SourceUpdated 事件和 TargetUpdated 事件，可以通过监听这两个事件来找出有哪些数据或控件被更新了。
 
 
+###### Binding的路径Path
+在 XAML 代码中或者 Binding 类的构造器参数列表中以一个字符串来表示 Path，但 Path 的实际类型是 PropertyPath。
+Binding 的路径 Path 还支持多级路径(就是一路 . 下去)，可以点属性，如果数据类型有所引器则可以点索引 .[index]。
+如果 Binding 的路径 Path 是集合类型，可以使用斜线语法，如果集合的属性还是集合可以使用多级斜线语法，一路 / 下去。
+没有 Path 的 Binding
 
 
 

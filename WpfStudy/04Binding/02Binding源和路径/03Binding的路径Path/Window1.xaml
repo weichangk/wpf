@@ -1,0 +1,69 @@
+﻿<Window x:Class="WpfStudy._04Binding._02Binding源和路径._03Binding的路径Path.Window1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfStudy._04Binding._02Binding源和路径._03Binding的路径Path"
+        mc:Ignorable="d"
+        Title="Window1" Height="300" Width="500">
+    <Grid Margin="5">
+        <TabControl>
+            <TabItem>
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Ellipse Width="10" Height="10" Fill="DarkGray"/>
+                        <TextBlock>Binding Path 基本用法</TextBlock>
+                    </StackPanel>
+                </TabItem.Header>
+                <StackPanel>
+                    <!--在 xaml 中使用 Binding 标志扩展为控件绑定 Binding 源-->
+                    <!--<TextBox x:Name="TxbSliderValue" Text="{Binding Path=Value, ElementName=Slider}"></TextBox>-->
+                    
+                    <TextBox x:Name="TxbSliderValue"></TextBox>
+                    <Slider x:Name="Slider"></Slider>
+                </StackPanel>
+            </TabItem>
+            <TabItem>
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Ellipse Width="10" Height="10" Fill="DarkGray"/>
+                        <TextBlock>Binding Path . 语法</TextBlock>
+                    </StackPanel>
+                </TabItem.Header>
+                <StackPanel>
+                    <TextBox x:Name="Txb1"></TextBox>
+                    <TextBox x:Name="Txb2" Text="{Binding Path=Text.Length, ElementName=Txb1, Mode=OneWay}"></TextBox>
+                    <TextBox x:Name="Txb3"></TextBox>
+                </StackPanel>
+            </TabItem>
+            <TabItem>
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Ellipse Width="10" Height="10" Fill="DarkGray"/>
+                        <TextBlock>Binding Path / 语法</TextBlock>
+                    </StackPanel>
+                </TabItem.Header>
+                <StackPanel>
+                    <TextBox x:Name="Txb4"></TextBox>
+                    <TextBox x:Name="Txb5"></TextBox>
+                    <TextBox x:Name="Txb6"></TextBox>
+                    <Button Background="Green" Margin="0,10,0,10"></Button>
+                    <TextBox x:Name="Txb7"></TextBox>
+                    <TextBox x:Name="Txb8"></TextBox>
+                    <TextBox x:Name="Txb9"></TextBox>
+                </StackPanel>
+            </TabItem>
+            <TabItem>
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Ellipse Width="10" Height="10" Fill="DarkGray"/>
+                        <TextBlock>没有 Path 的 Binding</TextBlock>
+                    </StackPanel>
+                </TabItem.Header>
+                <StackPanel>
+
+                </StackPanel>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>
