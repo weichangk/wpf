@@ -88,6 +88,9 @@ namespace WpfStudy._04Binding._02Binding源和路径._03Binding的路径Path
             this.Txb7.SetBinding(TextBox.TextProperty, new Binding("/Name") { Source = countryList, Mode = BindingMode.OneWay });
             this.Txb8.SetBinding(TextBox.TextProperty, new Binding("/ProvinceList/Name") { Source = countryList, Mode = BindingMode.OneWay });
             this.Txb9.SetBinding(TextBox.TextProperty, new Binding("/ProvinceList/CityList/Name.Length") { Source = countryList, Mode = BindingMode.OneWay });
+
+            string TextBlockStr = "没有 Path 的 Binding";
+            this.Tbk2.SetBinding(TextBlock.TextProperty, new Binding(".") { Source = TextBlockStr });
         }
 
         class City

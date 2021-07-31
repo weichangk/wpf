@@ -10,7 +10,7 @@ WPF具有这种能力的关键是它引入了 Data Binding 概念以及与之配套的 Dependency Prope
 Binding 比作数据桥梁，它的两端分别是 Binding 的源(Source)和目标(Target)。Binding 源是逻辑层的对象, Binding 目标是 U1 层的控件对象。
 
 
-#### Binding基础
+#### Binding 基础
 数据源是一个对象，一个对象身上可能有很多数据，这些数据又通过属性暴露给外界。其中哪个数据是想通过 Binding 送达 UI 元素的呢？换句话说, UI上的元素关心的是哪个属性值的变化呢？
 这个属性就称为Binding的路径(Path)，但光有属性还不行，Binding是一种自动机制，当值变化后属性要有能力通知 Binding，让Binding把变化传递给UI元素。
 怎样才能让一个属性具备这种通知 Binding 值已经变化的能力呢?
@@ -18,17 +18,17 @@ Binding 比作数据桥梁，它的两端分别是 Binding 的源(Source)和目标(Target)。Binding
 当为Binding设置了数据源后，Binding 就会自动侦听来自这个接口的 PropertyChanged 事件。
 
 
-#### Binding源(Source)和路径(Path)
+#### Binding 源(Source)和路径(Path)
 Binding 的源也就是数据的源头。Binding对源的要求并不苛刻，只要它是一个对象，并且通过属性(Property)公开自己的数据，它就能作为Binding的源。
 想让作为Binding源的对象具有自动通知Binding自己的属性值已经变化的能力，需要让类实现 INotifyPropertyChanged 接口，并在属性的 set 语句中激发 PropertyChanged 事件。
 除了使用这种对象作为数据源外，还有更多的选择，比如控件把自己或自己的容器或子级元素当源、用一个控件作为另一个控件的数据源、把集合作为 ItemsControl 的数据源、使用 XML 作为 TreeView 或 Menu 的数据源、把多个控件关联到一个“数据制高点”上，甚至干脆不给Binding指定数据源、让它自己去找。
 
 
-###### 把控件作为Binding源与Binding标志扩展
+###### 把控件作为 Binding 源与 Binding 标志扩展
 在xaml中使用Binding标志扩展将控件作为其它控件的Binding源
 大多数 UIElement 属性都是依赖属性，而大多数依赖属性（只读属性除外）默认支持数据绑定。（仅派生自 DependencyObject 的类型才能定义依赖属性；所有 UIElement 类型都派生自 DependencyObject。）
 
-###### 控制Binding的方向及数据更新
+###### 控制 Binding 的方向及数据更新
 控制 Binding 数据流向的属性是 Mode，它的类型是 BindingMode 枚举。BindingMode 可取值为 TwoWay, OneWay, OnTime，OneWayToSource和Default。
 Default 值是指 Binding 的模式会根据目标的实际情况来确定，比如若是可编辑的(如TextBox.Text属性), Default 就采用双向模式；若是只读的(如TextBlock.Text)则采用单向模式。
 
@@ -49,11 +49,35 @@ Binding.UpdateSourceTrigger 属性确定触发源更新的因素。
 Binding 还具有 NotifyOnSourceUpdated 和 NotifyOnTargetUpdated 两个 bool 类型的属性。如果设为true，则当源或目标被更新后 Binding 会激发相应的 SourceUpdated 事件和 TargetUpdated 事件，可以通过监听这两个事件来找出有哪些数据或控件被更新了。
 
 
-###### Binding的路径Path
+###### Binding 的路径 Path
 在 XAML 代码中或者 Binding 类的构造器参数列表中以一个字符串来表示 Path，但 Path 的实际类型是 PropertyPath。
 Binding 的路径 Path 还支持多级路径(就是一路 . 下去)，可以点属性，如果数据类型有所引器则可以点索引 .[index]。
 如果 Binding 的路径 Path 是集合类型，可以使用斜线语法，如果集合的属性还是集合可以使用多级斜线语法，一路 / 下去。
+
 没有 Path 的 Binding
+Binding 源本身就是数据可以不需要 Path 来指明。典型的, string、 int等基本类型就是这样，他们的实例本身就是数据，无法指出通过它的哪个属性来访问这个数据，这时只需将 Path 的值设置为“." 就可以了。在XAML代码里这个 "." 可以省略不写，但在C#代码里却不能省略。
+
+
+###### 为 Binding 指定源(Source)的几种方法
+Binding 的源是数据的来源，所以只要一个对象包含数据并能通过属性把数据暴露出来，它就能当作Binding的源来使用。必须为 Binding 的 Source 指定合适的对象，Binding 才能正确工作，常见的办法有：
+
+- 把普通CLR类型单个对象指定为Source：包括.NET Framework自带类型的对象和用户自定义类型的对象。如果类型实现了INotifyPropertyChanged接口，则可通过在属性的set语句里激发PropertyChanged事件来通知Binding数据已被更新。
+- 把普通CLR集合类型对象指定为Source：包括数组、List<T>、 ObservableCollection<T>等集合类型。一般是把控件的ItemsSource属性使用Binding关联到一个集合对象上。
+- 把ADO.NET数据对象指定为Source：包括DataTable和DataView等对象。
+- 使用XmlDataProvider把XML数据指定为Source：XML作为标准的数据存储和传输格式几乎无处不在，可以用它表示单个数据对象或者集合；一些WPF控件是级联式的(如TreeView和Menu)，可以把树状结构的XML数据作为源指定给与之关联的Binding。
+- 把依赖对象(Dependency Object)指定为Source：依赖对象不仅可以作为Binding的目标，同时也可以作为Binding的源。这样就有可能形成Binding链。依赖对象中的依赖属性可以作为Binding的Path。
+- 把容器的DataContext指定为Source (WPF Data Binding的默认行为)：有时候会遇到这样的情况，已经明确知道将从哪个属性获取数据，但具体把哪个对象作为Binding源还不能确定。这时候，只能先建立一个Binding、只给它设置Path而不设置Source,让这个Binding自己去寻找Source，Binding会自动把控件的DataContext当作自己的Source(它会沿着控件树一层一层向外找，直到找到带有Path指定属性的对象为止)。
+- 通过ElementName指定Source：在C#代码里可以直接把对象作为Source赋值给Binding，但XAML无法访问对象，所以只能使用对象的Name属性来找到对象。
+- 通过Binding的RelativeSource属性相对地指定Source：当控件需要关注自己的、自己容器的或者自己内部元素的某个值就需要使用这种办法。
+- 把ObjectDataProvider对象指定为Source：当数据源的数据不是通过属性而是通过方法暴露给外界的时候,可以使用这两种对象来包装数据源再把它们指定为Source。
+- 把使用LINQ检索得到的数据对象作为Binding的源。
+
+使用DataContext作为Binding的源。
+- 当UI上的多个控件都使用Binding关注同一个对象时,可以使用DataContext。
+- 当作为Source的对象不能被直接访问的时候。比如B窗体内的控件想把A窗体内的控件当作自己的Binding源时，但A窗体内的控件是private访问级别，这时候就可以把这个控件(或者控件的值)作为窗体A的DataContext (这个属性是public访问级别的)从而暴露数据。
+- 外层或同层级容器的DataContext就相当于一个数据的“制高点”，只要把数据放上去，别的元素就都能看见。DataContext本身也是一个依赖属性，我们可以使用Binding把它关联到一个数据源上。
+
+
 
 
 

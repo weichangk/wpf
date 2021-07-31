@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
         xmlns:local="clr-namespace:WpfStudy._04Binding._02Binding源和路径._03Binding的路径Path"
         mc:Ignorable="d"
         Title="Window1" Height="300" Width="500">
@@ -61,7 +62,15 @@
                     </StackPanel>
                 </TabItem.Header>
                 <StackPanel>
-
+                    <StackPanel.Resources>
+                        <sys:String x:Key="str1">
+                            Binding 源本身就是数据可以不需要 Path 来指明。
+                            典型的, string、 int等基本类型就是这样，他们的实例本身就是数据，无法指出通过它的哪个属性来访问这个数据，
+                            这时只需将 Path 的值设置为“." 就可以了。在XAML代码里这个 "." 可以省略不写，但在C#代码里却不能省略。
+                        </sys:String>
+                    </StackPanel.Resources>
+                    <TextBlock x:Name="Tbk1" Text="{Binding Source={StaticResource ResourceKey=str1}}" Margin="5" FontSize="16px" TextWrapping="Wrap"></TextBlock>
+                    <TextBlock x:Name="Tbk2" Margin="5" FontSize="16px" TextWrapping="Wrap" Background="Green"></TextBlock>
                 </StackPanel>
             </TabItem>
         </TabControl>

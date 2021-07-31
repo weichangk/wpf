@@ -1,0 +1,50 @@
+﻿<Window x:Class="WpfStudy._04Binding._02Binding源和路径._04Binding指定Source的方法.Window1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        xmlns:local="clr-namespace:WpfStudy._04Binding._02Binding源和路径._04Binding指定Source的方法"
+        mc:Ignorable="d"
+        Title="04Binding指定Source的方法" Height="300" Width="500">
+    <Grid Margin="5">
+        <TabControl>
+            <TabItem>
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Ellipse Width="10" Height="10" Fill="DarkGray"/>
+                        <TextBlock>使用DataContext作为Binding的源</TextBlock>
+                    </StackPanel>
+                </TabItem.Header>
+                <StackPanel>
+                    <StackPanel.DataContext>
+                        <!--xaml引用自定义类提示命名空间不存在对应名称，需要编译后生成文件消除提示-->
+                        <local:Student Id="1" Name="Foo" Age="18"/>
+                    </StackPanel.DataContext>
+                    <TextBlock Text="{Binding Path=Id}"></TextBlock>
+                    <TextBlock Text="{Binding Path=Name}"></TextBlock>
+                    <TextBlock Text="{Binding Age}"></TextBlock>
+                    <TextBox Text="{Binding Age, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                    <StackPanel Background="Green">
+                        <StackPanel.DataContext>
+                            <sys:String>hello datacontext</sys:String>
+                        </StackPanel.DataContext>
+                        <!--双向绑定不起作用了？！！！-->
+                        <TextBox Text="{Binding Path=.}"></TextBox>
+                        <TextBox Text="{Binding Path=. , UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                        <Button x:Name="BtnHelloDatacontext">HelloDatacontext</Button>
+                        <Grid DataContext="10">
+                            <Grid>
+                                <Grid>
+                                    <Button x:Name="BtnShowDataContext" Click="BtnShowDataContext_Click">ShowDataContext</Button>
+                                </Grid>
+                            </Grid>
+                        </Grid>
+                    </StackPanel>
+
+                </StackPanel>
+
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>
