@@ -1,4 +1,4 @@
-### Binding
+## Binding
 https://docs.microsoft.com/zh-cn/dotnet/desktop/wpf/data/data-binding-overview?view=netframeworkdesktop-4.8
 
 WPF×÷ÎªÒ»ÖÖ×¨ÃÅµÄÕ¹Ê¾²ã¼¼Êõ£¬»ªÀöµÄÍâ¹ÛºÍ¶¯»­Ö»ÊÇËüµÄ±í²ãÏÖÏó£¬¸üÖØÒªµÄÊÇËüÔÚÉî²ã´ÎÉÏ°ïÖú³ÌÐòÔ±°ÑË¼Î¬µÄÖØÐÄ¹Ì¶¨ÔÚÁËÂß¼­²ã¡¢ÈÃÕ¹Ê¾²ãÓÀÔ¶´¦ÓÚÂß¼­²ãµÄ´ÓÊôµØÎ»¡£
@@ -10,7 +10,7 @@ WPF¾ßÓÐÕâÖÖÄÜÁ¦µÄ¹Ø¼üÊÇËüÒýÈëÁË Data Binding ¸ÅÄîÒÔ¼°ÓëÖ®ÅäÌ×µÄ Dependency Prope
 Binding ±È×÷Êý¾ÝÇÅÁº£¬ËüµÄÁ½¶Ë·Ö±ðÊÇ Binding µÄÔ´(Source)ºÍÄ¿±ê(Target)¡£Binding Ô´ÊÇÂß¼­²ãµÄ¶ÔÏó, Binding Ä¿±êÊÇ U1 ²ãµÄ¿Ø¼þ¶ÔÏó¡£
 
 
-#### Binding »ù´¡
+### Binding »ù´¡
 Êý¾ÝÔ´ÊÇÒ»¸ö¶ÔÏó£¬Ò»¸ö¶ÔÏóÉíÉÏ¿ÉÄÜÓÐºÜ¶àÊý¾Ý£¬ÕâÐ©Êý¾ÝÓÖÍ¨¹ýÊôÐÔ±©Â¶¸øÍâ½ç¡£ÆäÖÐÄÄ¸öÊý¾ÝÊÇÏëÍ¨¹ý Binding ËÍ´ï UI ÔªËØµÄÄØ£¿»»¾ä»°Ëµ, UIÉÏµÄÔªËØ¹ØÐÄµÄÊÇÄÄ¸öÊôÐÔÖµµÄ±ä»¯ÄØ£¿
 Õâ¸öÊôÐÔ¾Í³ÆÎªBindingµÄÂ·¾¶(Path)£¬µ«¹âÓÐÊôÐÔ»¹²»ÐÐ£¬BindingÊÇÒ»ÖÖ×Ô¶¯»úÖÆ£¬µ±Öµ±ä»¯ºóÊôÐÔÒªÓÐÄÜÁ¦Í¨Öª Binding£¬ÈÃBinding°Ñ±ä»¯´«µÝ¸øUIÔªËØ¡£
 ÔõÑù²ÅÄÜÈÃÒ»¸öÊôÐÔ¾ß±¸ÕâÖÖÍ¨Öª Binding ÖµÒÑ¾­±ä»¯µÄÄÜÁ¦ÄØ?
@@ -18,17 +18,17 @@ Binding ±È×÷Êý¾ÝÇÅÁº£¬ËüµÄÁ½¶Ë·Ö±ðÊÇ Binding µÄÔ´(Source)ºÍÄ¿±ê(Target)¡£Binding
 µ±ÎªBindingÉèÖÃÁËÊý¾ÝÔ´ºó£¬Binding ¾Í»á×Ô¶¯ÕìÌýÀ´×ÔÕâ¸ö½Ó¿ÚµÄ PropertyChanged ÊÂ¼þ¡£
 
 
-#### Binding Ô´(Source)ºÍÂ·¾¶(Path)
+### Binding Ô´(Source)ºÍÂ·¾¶(Path)
 Binding µÄÔ´Ò²¾ÍÊÇÊý¾ÝµÄÔ´Í·¡£Binding¶ÔÔ´µÄÒªÇó²¢²»¿Á¿Ì£¬Ö»ÒªËüÊÇÒ»¸ö¶ÔÏó£¬²¢ÇÒÍ¨¹ýÊôÐÔ(Property)¹«¿ª×Ô¼ºµÄÊý¾Ý£¬Ëü¾ÍÄÜ×÷ÎªBindingµÄÔ´¡£
 ÏëÈÃ×÷ÎªBindingÔ´µÄ¶ÔÏó¾ßÓÐ×Ô¶¯Í¨ÖªBinding×Ô¼ºµÄÊôÐÔÖµÒÑ¾­±ä»¯µÄÄÜÁ¦£¬ÐèÒªÈÃÀàÊµÏÖ INotifyPropertyChanged ½Ó¿Ú£¬²¢ÔÚÊôÐÔµÄ set Óï¾äÖÐ¼¤·¢ PropertyChanged ÊÂ¼þ¡£
 ³ýÁËÊ¹ÓÃÕâÖÖ¶ÔÏó×÷ÎªÊý¾ÝÔ´Íâ£¬»¹ÓÐ¸ü¶àµÄÑ¡Ôñ£¬±ÈÈç¿Ø¼þ°Ñ×Ô¼º»ò×Ô¼ºµÄÈÝÆ÷»ò×Ó¼¶ÔªËØµ±Ô´¡¢ÓÃÒ»¸ö¿Ø¼þ×÷ÎªÁíÒ»¸ö¿Ø¼þµÄÊý¾ÝÔ´¡¢°Ñ¼¯ºÏ×÷Îª ItemsControl µÄÊý¾ÝÔ´¡¢Ê¹ÓÃ XML ×÷Îª TreeView »ò Menu µÄÊý¾ÝÔ´¡¢°Ñ¶à¸ö¿Ø¼þ¹ØÁªµ½Ò»¸ö¡°Êý¾ÝÖÆ¸ßµã¡±ÉÏ£¬ÉõÖÁ¸É´à²»¸øBindingÖ¸¶¨Êý¾ÝÔ´¡¢ÈÃËü×Ô¼ºÈ¥ÕÒ¡£
 
 
-###### °Ñ¿Ø¼þ×÷Îª Binding Ô´Óë Binding ±êÖ¾À©Õ¹
+#### °Ñ¿Ø¼þ×÷Îª Binding Ô´Óë Binding ±êÖ¾À©Õ¹
 ÔÚxamlÖÐÊ¹ÓÃBinding±êÖ¾À©Õ¹½«¿Ø¼þ×÷ÎªÆäËü¿Ø¼þµÄBindingÔ´
 ´ó¶àÊý UIElement ÊôÐÔ¶¼ÊÇÒÀÀµÊôÐÔ£¬¶ø´ó¶àÊýÒÀÀµÊôÐÔ£¨Ö»¶ÁÊôÐÔ³ýÍâ£©Ä¬ÈÏÖ§³ÖÊý¾Ý°ó¶¨¡££¨½öÅÉÉú×Ô DependencyObject µÄÀàÐÍ²ÅÄÜ¶¨ÒåÒÀÀµÊôÐÔ£»ËùÓÐ UIElement ÀàÐÍ¶¼ÅÉÉú×Ô DependencyObject¡££©
 
-###### ¿ØÖÆ Binding µÄ·½Ïò¼°Êý¾Ý¸üÐÂ
+#### ¿ØÖÆ Binding µÄ·½Ïò¼°Êý¾Ý¸üÐÂ
 ¿ØÖÆ Binding Êý¾ÝÁ÷ÏòµÄÊôÐÔÊÇ Mode£¬ËüµÄÀàÐÍÊÇ BindingMode Ã¶¾Ù¡£BindingMode ¿ÉÈ¡ÖµÎª TwoWay, OneWay, OnTime£¬OneWayToSourceºÍDefault¡£
 Default ÖµÊÇÖ¸ Binding µÄÄ£Ê½»á¸ù¾ÝÄ¿±êµÄÊµ¼ÊÇé¿öÀ´È·¶¨£¬±ÈÈçÈôÊÇ¿É±à¼­µÄ(ÈçTextBox.TextÊôÐÔ), Default ¾Í²ÉÓÃË«ÏòÄ£Ê½£»ÈôÊÇÖ»¶ÁµÄ(ÈçTextBlock.Text)Ôò²ÉÓÃµ¥ÏòÄ£Ê½¡£
 
@@ -37,7 +37,7 @@ Default ÖµÊÇÖ¸ Binding µÄÄ£Ê½»á¸ù¾ÝÄ¿±êµÄÊµ¼ÊÇé¿öÀ´È·¶¨£¬±ÈÈçÈôÊÇ¿É±à¼­µÄ(ÈçText
 - OneWayToSource Óë OneWay °ó¶¨Ïà·´£»µ±Ä¿±êÊôÐÔ¸ü¸ÄÊ±£¬Ëü»á¸üÐÂÔ´ÊôÐÔ¡£ Ê¾Àý·½°¸ÊÇÖ»ÐèÒª´Ó UI ÖØÐÂ¼ÆËãÔ´ÖµµÄÇé¿ö¡£
 - OneTime »áÊ¹Ô´ÊôÐÔ³õÊ¼»¯Ä¿±êÊôÐÔ£¬µ«²»´«²¥ºóÐø¸ü¸Ä¡£ Èç¹ûÊý¾ÝÉÏÏÂÎÄ·¢Éú¸ü¸Ä£¬»òÕßÊý¾ÝÉÏÏÂÎÄÖÐµÄ¶ÔÏó·¢Éú¸ü¸Ä£¬Ôò¸ü¸Ä²»»áÔÚÄ¿±êÊôÐÔÖÐ·´Ó³¡£ Èç¹ûÊÊºÏÊ¹ÓÃµ±Ç°×´Ì¬µÄ¿ìÕÕ»òÊý¾ÝÊµ¼ÊÎª¾²Ì¬Êý¾Ý£¬Ôò´ËÀàÐÍµÄ°ó¶¨ÊÊºÏ¡£ Èç¹ûÄãÏëÊ¹ÓÃÔ´ÊôÐÔÖÐµÄÄ³¸öÖµÀ´³õÊ¼»¯Ä¿±êÊôÐÔ£¬ÇÒÌáÇ°²»ÖªµÀÊý¾ÝÉÏÏÂÎÄ£¬Ôò´ËÀàÐÍµÄ°ó¶¨Ò²ÓÐÓÃ¡£ ´ËÄ£Ê½ÊµÖÊÉÏÊÇ OneWay °ó¶¨µÄÒ»ÖÖ¼ò»¯ÐÎÊ½£¬ËüÔÚÔ´Öµ²»¸ü¸ÄµÄÇé¿öÏÂÌá¹©¸üºÃµÄÐÔÄÜ¡£
 
-´¥·¢Ô´¸üÐÂµÄÒòËØ
+´¥·¢Ô´¸üÐÂµÄÒòËØ£º
 TwoWay »ò OneWayToSource °ó¶¨ÕìÌýÄ¿±êÊôÐÔÖÐµÄ¸ü¸Ä£¬²¢½«¸ü¸Ä´«²¥»ØÔ´£¨³ÆÎª¸üÐÂÔ´£©¡£ÀýÈç£¬¿ÉÒÔ±à¼­ÎÄ±¾¿òµÄÎÄ±¾ÒÔ¸ü¸Ä»ù´¡Ô´Öµ¡£
 Binding.UpdateSourceTrigger ÊôÐÔÈ·¶¨´¥·¢Ô´¸üÐÂµÄÒòËØ¡£
 ²»Í¬µÄÒÀÀµÊôÐÔ¾ßÓÐ²»Í¬µÄÄ¬ÈÏ UpdateSourceTrigger Öµ¡£ ´ó¶àÊýÒÀÀµÊôÐÔµÄÄ¬ÈÏÖµÎª PropertyChanged£¬¶ø TextBox.Text ÊôÐÔµÄÄ¬ÈÏÖµÎª LostFocus¡£ PropertyChanged ±íÊ¾Ô´¸üÐÂÍ¨³£ÔÚÃ¿´ÎÄ¿±êÊôÐÔ¸ü¸ÄÊ±·¢Éú¡£ ¼´Ê±¸ü¸ÄÊÊÓÃÓÚ CheckBox ºÍÆäËû¼òµ¥¿Ø¼þ¡£ µ«¶ÔÓÚÎÄ±¾×Ö¶Î£¬Ã¿´Î»÷¼üºó¶¼½øÐÐ¸üÐÂ»á½µµÍÐÔÄÜ£¬ÓÃ»§Ò²Ã»ÓÐ»ú»áÔÚÌá½»ÐÂÖµÖ®Ç°Ê¹ÓÃ Backspace ¼üÐÞ¸Ä¼üÈë´íÎó¡£
@@ -49,7 +49,7 @@ Binding.UpdateSourceTrigger ÊôÐÔÈ·¶¨´¥·¢Ô´¸üÐÂµÄÒòËØ¡£
 Binding »¹¾ßÓÐ NotifyOnSourceUpdated ºÍ NotifyOnTargetUpdated Á½¸ö bool ÀàÐÍµÄÊôÐÔ¡£Èç¹ûÉèÎªtrue£¬Ôòµ±Ô´»òÄ¿±ê±»¸üÐÂºó Binding »á¼¤·¢ÏàÓ¦µÄ SourceUpdated ÊÂ¼þºÍ TargetUpdated ÊÂ¼þ£¬¿ÉÒÔÍ¨¹ý¼àÌýÕâÁ½¸öÊÂ¼þÀ´ÕÒ³öÓÐÄÄÐ©Êý¾Ý»ò¿Ø¼þ±»¸üÐÂÁË¡£
 
 
-###### Binding µÄÂ·¾¶ Path
+#### Binding µÄÂ·¾¶ Path
 ÔÚ XAML ´úÂëÖÐ»òÕß Binding ÀàµÄ¹¹ÔìÆ÷²ÎÊýÁÐ±íÖÐÒÔÒ»¸ö×Ö·û´®À´±íÊ¾ Path£¬µ« Path µÄÊµ¼ÊÀàÐÍÊÇ PropertyPath¡£
 Binding µÄÂ·¾¶ Path »¹Ö§³Ö¶à¼¶Â·¾¶(¾ÍÊÇÒ»Â· . ÏÂÈ¥)£¬¿ÉÒÔµãÊôÐÔ£¬Èç¹ûÊý¾ÝÀàÐÍÓÐËùÒýÆ÷Ôò¿ÉÒÔµãË÷Òý .[index]¡£
 Èç¹û Binding µÄÂ·¾¶ Path ÊÇ¼¯ºÏÀàÐÍ£¬¿ÉÒÔÊ¹ÓÃÐ±ÏßÓï·¨£¬Èç¹û¼¯ºÏµÄÊôÐÔ»¹ÊÇ¼¯ºÏ¿ÉÒÔÊ¹ÓÃ¶à¼¶Ð±ÏßÓï·¨£¬Ò»Â· / ÏÂÈ¥¡£
@@ -58,7 +58,7 @@ Binding µÄÂ·¾¶ Path »¹Ö§³Ö¶à¼¶Â·¾¶(¾ÍÊÇÒ»Â· . ÏÂÈ¥)£¬¿ÉÒÔµãÊôÐÔ£¬Èç¹ûÊý¾ÝÀàÐÍÓÐË
 Binding Ô´±¾Éí¾ÍÊÇÊý¾Ý¿ÉÒÔ²»ÐèÒª Path À´Ö¸Ã÷¡£µäÐÍµÄ, string¡¢ intµÈ»ù±¾ÀàÐÍ¾ÍÊÇÕâÑù£¬ËûÃÇµÄÊµÀý±¾Éí¾ÍÊÇÊý¾Ý£¬ÎÞ·¨Ö¸³öÍ¨¹ýËüµÄÄÄ¸öÊôÐÔÀ´·ÃÎÊÕâ¸öÊý¾Ý£¬ÕâÊ±Ö»Ðè½« Path µÄÖµÉèÖÃÎª¡°." ¾Í¿ÉÒÔÁË¡£ÔÚXAML´úÂëÀïÕâ¸ö "." ¿ÉÒÔÊ¡ÂÔ²»Ð´£¬µ«ÔÚC#´úÂëÀïÈ´²»ÄÜÊ¡ÂÔ¡£
 
 
-###### Îª Binding Ö¸¶¨Ô´(Source)µÄ¼¸ÖÖ·½·¨
+#### Îª Binding Ö¸¶¨Ô´(Source)µÄ¼¸ÖÖ·½·¨
 Binding µÄÔ´ÊÇÊý¾ÝµÄÀ´Ô´£¬ËùÒÔÖ»ÒªÒ»¸ö¶ÔÏó°üº¬Êý¾Ý²¢ÄÜÍ¨¹ýÊôÐÔ°ÑÊý¾Ý±©Â¶³öÀ´£¬Ëü¾ÍÄÜµ±×÷BindingµÄÔ´À´Ê¹ÓÃ¡£±ØÐëÎª Binding µÄ Source Ö¸¶¨ºÏÊÊµÄ¶ÔÏó£¬Binding ²ÅÄÜÕýÈ·¹¤×÷£¬³£¼ûµÄ°ì·¨ÓÐ£º
 
 - °ÑÆÕÍ¨CLRÀàÐÍµ¥¸ö¶ÔÏóÖ¸¶¨ÎªSource£º°üÀ¨.NET Framework×Ô´øÀàÐÍµÄ¶ÔÏóºÍÓÃ»§×Ô¶¨ÒåÀàÐÍµÄ¶ÔÏó¡£Èç¹ûÀàÐÍÊµÏÖÁËINotifyPropertyChanged½Ó¿Ú£¬Ôò¿ÉÍ¨¹ýÔÚÊôÐÔµÄsetÓï¾äÀï¼¤·¢PropertyChangedÊÂ¼þÀ´Í¨ÖªBindingÊý¾ÝÒÑ±»¸üÐÂ¡£
@@ -72,10 +72,19 @@ Binding µÄÔ´ÊÇÊý¾ÝµÄÀ´Ô´£¬ËùÒÔÖ»ÒªÒ»¸ö¶ÔÏó°üº¬Êý¾Ý²¢ÄÜÍ¨¹ýÊôÐÔ°ÑÊý¾Ý±©Â¶³öÀ´£¬Ëü
 - °ÑObjectDataProvider¶ÔÏóÖ¸¶¨ÎªSource£ºµ±Êý¾ÝÔ´µÄÊý¾Ý²»ÊÇÍ¨¹ýÊôÐÔ¶øÊÇÍ¨¹ý·½·¨±©Â¶¸øÍâ½çµÄÊ±ºò,¿ÉÒÔÊ¹ÓÃÕâÁ½ÖÖ¶ÔÏóÀ´°ü×°Êý¾ÝÔ´ÔÙ°ÑËüÃÇÖ¸¶¨ÎªSource¡£
 - °ÑÊ¹ÓÃLINQ¼ìË÷µÃµ½µÄÊý¾Ý¶ÔÏó×÷ÎªBindingµÄÔ´¡£
 
-Ê¹ÓÃDataContext×÷ÎªBindingµÄÔ´¡£
+##### Ê¹ÓÃDataContext×÷ÎªBindingµÄÔ´
 - µ±UIÉÏµÄ¶à¸ö¿Ø¼þ¶¼Ê¹ÓÃBinding¹Ø×¢Í¬Ò»¸ö¶ÔÏóÊ±,¿ÉÒÔÊ¹ÓÃDataContext¡£
 - µ±×÷ÎªSourceµÄ¶ÔÏó²»ÄÜ±»Ö±½Ó·ÃÎÊµÄÊ±ºò¡£±ÈÈçB´°ÌåÄÚµÄ¿Ø¼þÏë°ÑA´°ÌåÄÚµÄ¿Ø¼þµ±×÷×Ô¼ºµÄBindingÔ´Ê±£¬µ«A´°ÌåÄÚµÄ¿Ø¼þÊÇprivate·ÃÎÊ¼¶±ð£¬ÕâÊ±ºò¾Í¿ÉÒÔ°ÑÕâ¸ö¿Ø¼þ(»òÕß¿Ø¼þµÄÖµ)×÷Îª´°ÌåAµÄDataContext (Õâ¸öÊôÐÔÊÇpublic·ÃÎÊ¼¶±ðµÄ)´Ó¶ø±©Â¶Êý¾Ý¡£
 - Íâ²ã»òÍ¬²ã¼¶ÈÝÆ÷µÄDataContext¾ÍÏàµ±ÓÚÒ»¸öÊý¾ÝµÄ¡°ÖÆ¸ßµã¡±£¬Ö»Òª°ÑÊý¾Ý·ÅÉÏÈ¥£¬±ðµÄÔªËØ¾Í¶¼ÄÜ¿´¼û¡£DataContext±¾ÉíÒ²ÊÇÒ»¸öÒÀÀµÊôÐÔ£¬ÎÒÃÇ¿ÉÒÔÊ¹ÓÃBinding°ÑËü¹ØÁªµ½Ò»¸öÊý¾ÝÔ´ÉÏ¡£
+
+##### Ê¹ÓÃ¼¯ºÏ¶ÔÏó×÷ÎªÁÐ±í¿Ø¼þµÄItemsSource
+WPFÖÐµÄÁÐ±íÊ½¿Ø¼þÃÇÅÉÉú×ÔItemsControlÀà£¬×ÔÈ»Ò²¾Í¼Ì³ÐÁËItemsSourceÕâ¸öÊôÐÔ¡£ItemsSourceÊôÐÔ¿ÉÒÔ½ÓÊÕÒ»¸öIEnumerable½Ó¿ÚÅÉÉúÀàµÄÊµÀý×÷Îª×Ô¼ºµÄÖµ(ËùÓÐ¿É±»µü´ú±éÀúµÄ¼¯ºÏ¶¼ÊµÏÖÁËÕâ¸ö½Ó¿Ú£¬°üÀ¨Êý×é¡¢List<T>µÈ)£¬Ã¿¸öItemsControlµÄÅÉÉúÀà¶¼¾ßÓÐ×Ô¼º¶ÔÓ¦µÄÌõÄ¿ÈÝÆ÷(Item Container)£¬ÀýÈç, ListBoxµÄÌõÄ¿ÈÝÆ÷ÊÇListBoxltem¡¢ComboBoxµÄÌõÄ¿ÈÝÆ÷ÊÇComhoBoxltem£¬ItemsSourceÀï´æ·ÅµÄÊÇÒ»ÌõÒ»ÌõµÄÊý¾Ý¡£
+ÒÀ¿¿Binding£¬Ö»ÒªÎªÒ»¸öItemsControl¶ÔÏóÉèÖÃÁËitemsSourceÊôÐÔÖµ£¬Itemslontrol¶ÔÏó¾Í»á×Ô¶¯µü´úÆäÖÐµÄÊý¾ÝÔªËØ¡¢ÎªÃ¿¸öÊý¾ÝÔªËØ×¼±¸Ò»¸öÌõÄ¿ÈÝÆ÷£¬²¢Ê¹ÓÃBindingÔÚÌõÄ¿ÈÝÆ÷ÓëÊý¾ÝÔªËØÖ®¼ä½¨Á¢Æð¹ØÁª¡£
+ÔÚxamlÖÐ¿ÉÒÔÊ¹ÓÃDataTemplateÊµÏÖ¶Ô¼¯ºÏ¶ÔÏóµÄÊý¾Ý°ó¶¨¡£
+Ê¹ÓÃ¼¯ºÏÀàÐÍ×÷ÎªÁÐ±í¿Ø¼þµÄItemsSourceÊ±Ò»°ã»á¿¼ÂÇÊ¹ÓÃObservableCollection<T>´úÌæList<T>ÒòÎªObservableCollection<T>ÀàÊµÏÖÁËINotifyCollectionChangedºÍINotifyPropertyChanged½Ó¿Ú£¬ÄÜ°Ñ¼¯ºÏµÄ±ä»¯Á¢¿ÌÍ¨ÖªÏÔÊ¾ËüµÄÁÐ±í¿Ø¼þ¡£ÊµÀýÖÐ·¢ÏÖList<T>Ò²¿ÉÒÔ¸üÐÂ±ä»¯¡£¡£¡£
+
+##### Ê¹ÓÃADO.NET¶ÔÏó×÷ÎªBindingµÄÔ´
+DataTable²»ÄÜÖ±½ÓÄÃÀ´ÎªItemsSource¸³Öµ£¬ÐèÒªDataTable.DefaultView¡£µ«ÊÇ°ÑDataTable¶ÔÏó·ÅÔÚÒ»¸ö¶ÔÏóµÄDataContextÊôÐÔÀï£¬²¢°ÑItemsSourceÓëÒ»¸ö¼ÈÃ»ÓÐÖ¸¶¨SourceÓÖÃ»ÓÐÖ¸¶¨PathµÄBinding¹ØÁªÆðÀ´Ê±, BindingÈ´ÄÜ×Ô¶¯ÕÒµ½ËüµÄDefaultView²¢µ±×÷×Ô¼ºµÄSourceÀ´Ê¹ÓÃ¡£
 
 
 

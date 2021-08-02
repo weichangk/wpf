@@ -41,9 +41,93 @@
                             </Grid>
                         </Grid>
                     </StackPanel>
-
                 </StackPanel>
+            </TabItem>
 
+            <TabItem>
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Ellipse Width="10" Height="10" Fill="DarkGray"/>
+                        <TextBlock>使用集合对象作为列表控件的ItemsSource</TextBlock>
+                    </StackPanel>
+                </TabItem.Header>
+                <StackPanel>
+                    <TextBlock Text="学生ID：" FontWeight="Bold" Background="LightBlue"></TextBlock>
+                    <TextBox x:Name="TxtStuId"></TextBox>
+                    <TextBlock Text="学生列表：" FontWeight="Bold" Background="LightBlue"></TextBlock>
+                    <ListBox x:Name="LsbStuList" Height="100"></ListBox>
+                </StackPanel>
+            </TabItem>
+
+            <TabItem>
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Ellipse Width="10" Height="10" Fill="DarkGray"/>
+                        <TextBlock>使用DataTemplate</TextBlock>
+                    </StackPanel>
+                </TabItem.Header>
+                <StackPanel>
+                    <TextBlock Text="学生ID：" FontWeight="Bold" Background="LightBlue"></TextBlock>
+                    <TextBox x:Name="TxtStuId1"></TextBox>
+                    <TextBlock Text="学生列表：" FontWeight="Bold" Background="LightBlue"></TextBlock>
+                    <ListBox x:Name="LsbStuList1" Height="100">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding Path=Id}" Width="50"></TextBlock>
+                                    <TextBlock Text="{Binding Path=Name}" Width="100"></TextBlock>
+                                    <TextBlock Text="{Binding Path=Age}" Width="50"></TextBlock>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </StackPanel>
+            </TabItem>
+
+            <TabItem>
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Ellipse Width="10" Height="10" Fill="DarkGray"/>
+                        <TextBlock>ObservableCollection代替List</TextBlock>
+                    </StackPanel>
+                </TabItem.Header>
+                <StackPanel>
+                    <TextBlock Text="学生年龄：" FontWeight="Bold" Background="LightBlue"></TextBlock>
+                    <TextBox x:Name="TxtStuAge"></TextBox>
+                    <TextBlock Text="学生列表：" FontWeight="Bold" Background="LightBlue"></TextBlock>
+                    <ListBox x:Name="LsbStuObs" Height="100">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding Path=Id}" Width="50"></TextBlock>
+                                    <TextBlock Text="{Binding Path=Name}" Width="100"></TextBlock>
+                                    <TextBlock Text="{Binding Path=Age}" Width="50"></TextBlock>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </StackPanel>
+            </TabItem>
+
+            <TabItem>
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Ellipse Width="10" Height="10" Fill="DarkGray"/>
+                        <TextBlock>使用ADO.NET对象作Binding源</TextBlock>
+                    </StackPanel>
+                </TabItem.Header>
+                <StackPanel>
+                    <ListView x:Name="LsvStudents" Height="180">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="Id" Width="100" DisplayMemberBinding="{Binding Id}"></GridViewColumn>
+                                <GridViewColumn Header="姓名" Width="200" DisplayMemberBinding="{Binding Name}"></GridViewColumn>
+                                <GridViewColumn Header="年龄" Width="100" DisplayMemberBinding="{Binding Age}"></GridViewColumn>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                    <Button x:Name="BtnLoadDataTable" Click="BtnLoadDataTable_Click">加载</Button>
+                </StackPanel>
             </TabItem>
         </TabControl>
     </Grid>
