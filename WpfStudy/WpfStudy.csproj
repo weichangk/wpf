@@ -16,4 +16,16 @@
     <Folder Include="09绘画\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="04Binding\02Binding源和路径\04Binding指定Source的方法\StudentList.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="img\Bomber.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="img\Fighter.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

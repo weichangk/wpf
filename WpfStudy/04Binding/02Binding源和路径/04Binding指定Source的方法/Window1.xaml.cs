@@ -98,6 +98,20 @@ namespace WpfStudy._04Binding._02Binding源和路径._04Binding指定Source的�
         }
         #endregion
 
+        #region 使用XML数据作为Binding的源
+        private void BtnLoadXml_Click(object sender, RoutedEventArgs e)
+        {
+            XmlDataProvider xdp = new XmlDataProvider
+            {
+                Source = new Uri($"{System.AppDomain.CurrentDomain.BaseDirectory}04Binding\\02Binding源和路径\\04Binding指定Source的方法\\StudentList.xml"),
+                XPath = @"/StudentList/Student"
+            };
+            this.LsvStudentsXml.DataContext = xdp;
+            this.LsvStudentsXml.SetBinding(ListView.ItemsSourceProperty, new Binding());
+        }
+        #endregion
+
+
     }
 
     class Student

@@ -87,15 +87,36 @@ WPF中的列表式控件们派生自ItemsControl类，自然也就继承了ItemsSource这个属性。Item
 DataTable不能直接拿来为ItemsSource赋值，需要DataTable.DefaultView。但是把DataTable对象放在一个对象的DataContext属性里，并把ItemsSource与一个既没有指定Source又没有指定Path的Binding关联起来时, Binding却能自动找到它的DefaultView并当作自己的Source来使用。
 
 
+##### 使用XML数据作为Binding的源
+当使用XML数据作为Binding的Source时将使用XPath属性而不是Path属性来指定数据的来源。
+在xaml中Binding XPath使用@符号加字符串表示的是XML元素的Attribute，不加@符号的字符串表示的是子级元素。
 
 
+#### Binding对数据的转换与校验
+Binding用于数据有效性校验的关卡是它的ValidationRules属性，用于数据类型转换的关卡是它的Converter属性。
+
+##### Binding的数据校验
+Binding的ValidationRules属性类型是Collection<ValidationRule>，从它的名称和数据类型可以得知可以为每个Binding设置多个数据校验条件，每个条件是一个ValidationRule类型对象。
+ValidationRule类是个抽象类，在使用的时候我们需要创建它的派生类并实现它的Validate方法。
+Validate方法的返回值是ValidationResult类型对象，如果校验通过，就把ValidationResult对象的IsValid属性设为true，反之，需要把IsValid属性设为false并为其ErrorContent属性设置一个合适的消息内容(一般是个字符串)。
+
+Binding进行校验时的默认行为是认为来自Source的数据总是正确的，只有来自Target的数据才有可能有问题。当要校验来自Source的数据也有可能出问题时，需要将校验条件的ValidatesOnTargetUpdated属性设为true.
+
+在创建Binding时要把Binding对象的NotifyOnValidationError属性设为true，这样当数据校验失败的时候Binding会像报警器一样发出一个信号，这个信号会以Binding对象的Target为起点在UI元素树上传播。
+信号每到达一个结点，如果这个结点上设置有对这种信号的侦听器(事件处理器)，那么这个侦听器就会被触发用以处理这个信号。信号处理完后还可以选择是让信号继续向下传播还是就此终止--这就是路由事件，信号在UI元素树上的传递过程就称为路由(Route)。
 
 
+##### Binding的数据转换
+创建一个类并让这个类实现IValueConverter接口。IValueConverter接口定义如下:
+object Convert(object value, Type targetType, object parameter, CultureInfo culture);
+object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture);
 
-
-
-
-
+#### MultiBinding
+有的时候UI要需要显示的信息由不止一个数据来源决定，这时候就需要使用MultiBinding，即多路Binding。
+MultiBinding与Binding一样均以BindingBase为基类，也就是说，凡是能使用Binding对象的场合都能使用MultiBinding，
+MultiBinding具有一个名为Bindings的属性，其类型是Collection<BindingBase>，
+通过这个属性MultiBinding把一组Binding对象聚合起来，处在这个集合中的Binding对象可以拥有自己的数据校验与转换机制，
+它们汇集起来的数据将共同决定传往MultiBinding目标的数据。
 
 
 

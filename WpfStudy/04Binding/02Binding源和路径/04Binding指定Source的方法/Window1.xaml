@@ -6,7 +6,7 @@
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         xmlns:local="clr-namespace:WpfStudy._04Binding._02Binding源和路径._04Binding指定Source的方法"
         mc:Ignorable="d"
-        Title="04Binding指定Source的方法" Height="300" Width="500">
+        Title="04Binding指定Source的方法" Height="500" Width="500">
     <Grid Margin="5">
         <TabControl>
             <TabItem>
@@ -117,7 +117,7 @@
                     </StackPanel>
                 </TabItem.Header>
                 <StackPanel>
-                    <ListView x:Name="LsvStudents" Height="180">
+                    <ListView x:Name="LsvStudents" Height="100">
                         <ListView.View>
                             <GridView>
                                 <GridViewColumn Header="Id" Width="100" DisplayMemberBinding="{Binding Id}"></GridViewColumn>
@@ -127,6 +127,27 @@
                         </ListView.View>
                     </ListView>
                     <Button x:Name="BtnLoadDataTable" Click="BtnLoadDataTable_Click">加载</Button>
+                </StackPanel>
+            </TabItem>
+
+            <TabItem>
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Ellipse Width="10" Height="10" Fill="DarkGray"/>
+                        <TextBlock>使用XML数据作为Binding的源</TextBlock>
+                    </StackPanel>
+                </TabItem.Header>
+                <StackPanel>
+                    <ListView x:Name="LsvStudentsXml" Height="100">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="Id" Width="100" DisplayMemberBinding="{Binding XPath=@Id}"></GridViewColumn>
+                                <GridViewColumn Header="姓名" Width="200" DisplayMemberBinding="{Binding XPath=Name}"></GridViewColumn>
+                                <GridViewColumn Header="年龄" Width="100" DisplayMemberBinding="{Binding XPath=Age}"></GridViewColumn>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                    <Button x:Name="BtnLoadXml" Click="BtnLoadXml_Click">加载</Button>
                 </StackPanel>
             </TabItem>
         </TabControl>

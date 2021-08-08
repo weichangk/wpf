@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<StudentList>
+  <Student Id ="1">
+    <Name>foo</Name>
+    <Age>10</Age>
+  </Student>
+  <Student Id ="2">
+    <Name>bar</Name>
+    <Age>20</Age>
+  </Student>
+  <Student Id ="3">
+    <Name>baz</Name>
+    <Age>30</Age>
+  </Student>
+  <Student Id ="4">
+    <Name>qux</Name>
+    <Age>40</Age>
+  </Student>
+</StudentList>
