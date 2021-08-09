@@ -22,41 +22,42 @@ namespace WpfStudy._04Binding._02Binding源和路径._05Binding对数据的转�
         public Window1()
         {
             InitializeComponent();
-            //Binding binding = new("Value")
-            //{
-            //    Source = this.Slider1,
-            //    UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged,
-            //    NotifyOnValidationError= true,
-            //};
-            //binding.ValidationRules.Add(new RangeValidationRule() { 
-            //    ValidatesOnTargetUpdated = true,
-            //});
+            Binding binding = new("Value")
+            {
+                Source = this.Slider1,
+                UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged,
+                NotifyOnValidationError = true,
+            };
+            binding.ValidationRules.Add(new RangeValidationRule()
+            {
+                ValidatesOnTargetUpdated = true,
+            });
 
-            //this.Txb1.SetBinding(TextBox.TextProperty, binding);
-            //this.Txb1.AddHandler(Validation.ErrorEvent, new RoutedEventHandler(this.ValidationError));
+            this.Txb1.SetBinding(TextBox.TextProperty, binding);
+            this.Txb1.AddHandler(Validation.ErrorEvent, new RoutedEventHandler(this.ValidationError));
         }
 
-        //void ValidationError(object sender, RoutedEventArgs e)
-        //{
-        //    if (Validation.GetErrors(this.Txb1).Count > 0)
-        //    {
-        //        if (Validation.GetErrors(this.Txb1).Count > 0)
-        //        {
-        //            //ToolTip没有显示。。。。
-        //            this.Txb1.ToolTip = Validation.GetErrors(this.Txb1)[0].ErrorContent.ToString();
-        //        }
-        //    }
+        void ValidationError(object sender, RoutedEventArgs e)
+        {
+            if (Validation.GetErrors(this.Txb1).Count > 0)
+            {
+                if (Validation.GetErrors(this.Txb1).Count > 0)
+                {
+                    //ToolTip没有显示。。。。
+                    this.Txb1.ToolTip = Validation.GetErrors(this.Txb1)[0].ErrorContent.ToString();
+                }
+            }
 
-        //    TextBox textBox = sender as TextBox;
-        //    if (textBox != null)
-        //    {
-        //        if (Validation.GetErrors(textBox).Count > 0)
-        //        {
-        //            Txb1ErrorMsg.Text = Validation.GetErrors(textBox)[0].ErrorContent.ToString();
-        //        }
-        //    }
+            TextBox textBox = sender as TextBox;
+            if (textBox != null)
+            {
+                if (Validation.GetErrors(textBox).Count > 0)
+                {
+                    Txb1ErrorMsg.Text = Validation.GetErrors(textBox)[0].ErrorContent.ToString();
+                }
+            }
 
-        //}
+        }
 
 
         private void button1_Click(object sender, RoutedEventArgs e)

@@ -11,24 +11,7 @@
         <local:CategoryToSourceConverter x:Key="cts" />
         <local:StateToNullableBoolConverter x:Key="snb" />
     </Window.Resources>
-    <StackPanel Name="stackPanel1" Background="AliceBlue" Margin="10">
-        <ListBox  Name="listBox1" Height="160" Margin="5">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel Orientation="Horizontal">
-                        <Image Height="16" Name="image1" Stretch="Fill" Width="16" Source="{Binding Path=Category,Converter={StaticResource cts}}"/>
-                        <TextBlock Height="23" Name="textBlock1" Text="{Binding Name}" Margin="8,0" Width="80"/>
-                        <!--IsThreeState="True" 设置为三种状态，分别是未点击时白框，单击时显示对勾，再单击时显示中间一个小蓝框。分别对应checked值为false, true和 null。-->
-                        <CheckBox  Height="16" Name="checkBox1" IsChecked="{Binding Path=State,Converter={StaticResource snb}}" IsThreeState="True"/>
-                    </StackPanel>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
-        <Button Content="Load" Height="23" Name="button1" Width="131" Margin="5" Click="button1_Click" />
-        <Button Content="Save" Height="23" Name="button2" Width="131" Margin="5" Click="button2_Click" />
-        <TextBlock x:Name="textBlockSave" Height="280"></TextBlock>
-    </StackPanel>
-    <!--<Grid Margin="5">
+    <Grid Margin="5">
         <TabControl>
             <TabItem>
                 <TabItem.Header>
@@ -55,10 +38,10 @@
                         <ListBox.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal">
-                                    <Image Height="16" Name="image1" Stretch="Fill" Width="16" Source="{Binding Path=category,Converter={StaticResource cts}}"/>
-                                    <TextBlock Height="23" Name="textBlock1" Text="{Binding name}" Margin="8,0" Width="80"/>
-                                    --><!--IsThreeState="True" 设置为三种状态，分别是未点击时白框，单击时显示对勾，再单击时显示中间一个小蓝框。分别对应checked值为false, true和 null。--><!--
-                                    <CheckBox  Height="16" Name="checkBox1" IsChecked="{Binding Path=state,Converter={StaticResource snb}}" IsThreeState="True"/>
+                                    <Image Height="16" Name="image1" Stretch="Fill" Width="16" Source="{Binding Path=Category,Converter={StaticResource cts}}"/>
+                                    <TextBlock Height="23" Name="textBlock1" Text="{Binding Name}" Margin="8,0" Width="80"/>
+                                    <!--IsThreeState="True" 设置为三种状态，分别是未点击时白框，单击时显示对勾，再单击时显示中间一个小蓝框。分别对应checked值为false, true和 null。-->
+                                    <CheckBox  Height="16" Name="checkBox1" IsChecked="{Binding Path=State,Converter={StaticResource snb}}" IsThreeState="True"/>
                                 </StackPanel>
                             </DataTemplate>
                         </ListBox.ItemTemplate>
@@ -69,5 +52,5 @@
                 </StackPanel>
             </TabItem>
         </TabControl>
-    </Grid>-->
+    </Grid>
 </Window>

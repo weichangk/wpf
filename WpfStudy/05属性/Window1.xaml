@@ -1,0 +1,42 @@
+﻿<Window x:Class="WpfStudy._05属性.Window1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfStudy._05属性"
+        mc:Ignorable="d"
+        Title="Window1" Height="450" Width="800">
+    <Grid>
+        <TabControl>
+            <TabItem>
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Ellipse Width="10" Height="10" Fill="DarkGray"/>
+                        <TextBlock>依赖属性值存取的秘密</TextBlock>
+                    </StackPanel>
+                </TabItem.Header>
+                <StackPanel>
+                    <Label>姓名</Label>
+                    <TextBox x:Name="TxbName"></TextBox>
+                    <Label>年龄</Label>
+                    <TextBox x:Name="TxbAge"></TextBox>
+                    <Label Background="Green">姓名</Label>
+                    <TextBox x:Name="TxbName1"></TextBox>
+                    <Label Background="Green">年龄</Label>
+                    <TextBox x:Name="TxbAge1"></TextBox>
+                </StackPanel>
+            </TabItem>
+            <TabItem>
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Ellipse Width="10" Height="10" Fill="DarkGray"/>
+                        <TextBlock>附加属性</TextBlock>
+                    </StackPanel>
+                </TabItem.Header>
+                <StackPanel>
+                    <Button x:Name="BtnAttached" Click="BtnAttached_Click">Attached</Button>
+                </StackPanel>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>
