@@ -1,7 +1,7 @@
-### 01XAMLÓï·¨
+### 01XAMLè¯­æ³•
 
-- XAML ¸ÅÊö (WPF .NET) 
+- XAML æ¦‚è¿° (WPF .NET) 
   - https://docs.microsoft.com/zh-cn/dotnet/desktop/wpf/xaml/?view=netdesktop-5.0&viewFallbackFrom=netdesktop-5.0
 
-- XAML Óï·¨ÏêÊö
+- XAML è¯­æ³•è¯¦è¿°
   - https://docs.microsoft.com/zh-cn/dotnet/desktop/wpf/advanced/xaml-syntax-in-detail?view=netframeworkdesktop-4.8&viewFallbackFrom=netdesktop-5.0

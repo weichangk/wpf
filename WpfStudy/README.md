@@ -1,16 +1,16 @@
 ### wpf
 
-ÔÚWindowsÉÏÊµÏÖÍ¼ÐÎ»¯µÄ½çÃæÈ´ÓÐ¶àÖÖ·½·¨£¬Ã¿ÖÖ·½·¨ÓÖÓµÓÐ×Ô¼ºµÄÒ»Ì×¿ª·¢ÀíÄîºÍ¹¤¾ß¡£Ã¿ÖÖGUI¿ª·¢·½·¨ÓëËüµÄÀíÄîºÍ¹¤¾ß¹²Í¬×é³ÉÒ»ÖÖ·½·¨ÂÛ£¬³£¼ûµÄÓÐ£º
-- Windows API (Win API)£ºµ÷ÓÃWindowsµ×²ã»æÍ¼º¯Êý£¬Ê¹ÓÃCÓïÑÔ£¬×îÔ­Ê¼Ò²×î»ù´¡¡£
-- Microsoft Foundation Class(MFC)£ºÊ¹ÓÃ C++ Óï·¨½«Ô­Ê¼µÄ Win32 API º¯Êý·â×°³É¿Ø¼þÀà¡£
-- Visual Component Library (VCL): Delphi ºÍ C++ Builder Ê¹ÓÃµÄÓë MFC Ïà½üµÄ¿Ø¼þÀà¿â¡£
-- Visual Basic + Activex ¿Ø¼þ(VB6)£ºÊ¹ÓÃ×é¼þ»¯µÄË¼Ïë°Ñ Win API ·â×°³ÉUI¿Ø¼þ£¬¶àÓïÑÔ¹²ÓÃ¡£
-- Java Swing/AWT: Java SDK ÖÐÓÃÓÚ¿çÆ½Ì¨¿ª·¢ GUI ³ÌÐòµÄ¿Ø¼þÀà¿â¡£
-- Windows Form: .NETÆ½Ì¨ÉÏ½øÐÐ GUI ¿ª·¢µÄÀÏÅÆ¾¢ÂÃ£¬ÊÂ¼þÇý¶¯£¬ÍêÈ«×é¼þ»¯µ«ÐèÒªNETÔËÐÐÊ±Ö§³Ö¡£
-- Windows Presentation Foundation (WPF)£ººóÆðÖ®Ðã£¬Ê¹ÓÃÈ«ÐÂµÄÊý¾ÝÇý¶¯U1µÄÀíÄî¡£
+åœ¨Windowsä¸Šå®žçŽ°å›¾å½¢åŒ–çš„ç•Œé¢å´æœ‰å¤šç§æ–¹æ³•ï¼Œæ¯ç§æ–¹æ³•åˆæ‹¥æœ‰è‡ªå·±çš„ä¸€å¥—å¼€å‘ç†å¿µå’Œå·¥å…·ã€‚æ¯ç§GUIå¼€å‘æ–¹æ³•ä¸Žå®ƒçš„ç†å¿µå’Œå·¥å…·å…±åŒç»„æˆä¸€ç§æ–¹æ³•è®ºï¼Œå¸¸è§çš„æœ‰ï¼š
+- Windows API (Win API)ï¼šè°ƒç”¨Windowsåº•å±‚ç»˜å›¾å‡½æ•°ï¼Œä½¿ç”¨Cè¯­è¨€ï¼Œæœ€åŽŸå§‹ä¹Ÿæœ€åŸºç¡€ã€‚
+- Microsoft Foundation Class(MFC)ï¼šä½¿ç”¨ C++ è¯­æ³•å°†åŽŸå§‹çš„ Win32 API å‡½æ•°å°è£…æˆæŽ§ä»¶ç±»ã€‚
+- Visual Component Library (VCL): Delphi å’Œ C++ Builder ä½¿ç”¨çš„ä¸Ž MFC ç›¸è¿‘çš„æŽ§ä»¶ç±»åº“ã€‚
+- Visual Basic + Activex æŽ§ä»¶(VB6)ï¼šä½¿ç”¨ç»„ä»¶åŒ–çš„æ€æƒ³æŠŠ Win API å°è£…æˆUIæŽ§ä»¶ï¼Œå¤šè¯­è¨€å…±ç”¨ã€‚
+- Java Swing/AWT: Java SDK ä¸­ç”¨äºŽè·¨å¹³å°å¼€å‘ GUI ç¨‹åºçš„æŽ§ä»¶ç±»åº“ã€‚
+- Windows Form: .NETå¹³å°ä¸Šè¿›è¡Œ GUI å¼€å‘çš„è€ç‰ŒåŠ²æ—…ï¼Œäº‹ä»¶é©±åŠ¨ï¼Œå®Œå…¨ç»„ä»¶åŒ–ä½†éœ€è¦NETè¿è¡Œæ—¶æ”¯æŒã€‚
+- Windows Presentation Foundation (WPF)ï¼šåŽèµ·ä¹‹ç§€ï¼Œä½¿ç”¨å…¨æ–°çš„æ•°æ®é©±åŠ¨U1çš„ç†å¿µã€‚
 
-Windows GUI¿ª·¢ÀúÊ·£¬¿ÉÒÔ°ÑÉÏÊöÕâÐ©·½·¨ÂÛ·ÖÎªËÄ´ú:
-- Win APTÊ±´ú£ºº¯Êýµ÷ÓÃ + Windows ÏûÏ¢´¦Àí¡£
-- ·â×°Ê±´ú£ºÊ¹ÓÃÃæÏò¶ÔÏóÀíÄî°Ñ Win API ·â×°³ÉÀà£¬ÓÉÀ´×ÔUIµÄÏûÏ¢Çý¶¯³ÌÐò´¦ÀíÊý¾Ý¡£
-- ×é¼þ»¯Ê±´ú£ºÊ¹ÓÃÃæÏò×é¼þÀíÄîÔÚÀàµÄ»ù´¡ÉÏ·â×°³É×é¼þ£¬ÏûÏ¢±»·â×°³ÉÊÂ¼þ£¬±ä³ÉÊÂ¼þÇý¶¯¡£
-- WPFÊ±´ú£ºÔÚ×é¼þ»¯µÄ»ù´¡ÉÏ£¬Ê¹ÓÃ×¨ÃÅµÄ UI Éè¼ÆÓïÑÔ²¢ÒýÈëÓÉÊý¾ÝÇý¶¯ UI µÄÀíÄî¡£WPF Ö®ËùÒÔÄÜ¹»³ÆµÃÉÏÊÇÐÂµÄÒ»´ú¹Ø¼üÔÚÓÚÁ½µã£ºµÚÒ»£¬Ö®Ç°¼¸´ú GU1 ·½·¨ÂÛÖ»ÄÜÊ¹ÓÃ±à³ÌÓïÑÔ½øÐÐ U1 Éè¼Æ£¬¶ø WPF ¾ßÓÐ×¨ÃÅÓÃÓÚ UI Éè¼ÆµÄ XAML£»µÚ¶þ£¬Ç°¼¸´úÔÚ U1 ÓëÊý¾ÝµÄ½»»¥·½ÃæÊÇÓÉ Windows ÏûÏ¢µ½¿Ø¼þÊÂ¼þÒ»ÂöÏà³Ð£¬Ê¼ÖÕÊÇ°Ñ UI ¿Ø¼þ·ÅÔÚÖ÷µ¼µØÎ»¶ø°ÑÊý¾Ý·ÅÔÚ±»¶¯µØÎ»£¬ÓÃ UI À´Çý¶¯Êý¾ÝµÄ¸Ä±ä£¬WPF ÔÚÊÂ¼þÇý¶¯µÄ»ù´¡ÉÏÒýÈëÁËÊý¾ÝÇý¶¯½çÃæµÄÀíÄî£¬ÈÃÊý¾ÝÖØ¹éºËÐÄµØÎ»¶øÈÃ U1 »Ø¹éÊý¾Ý±í´ïÕßµÄÎ»ÖÃ¡£WPF ÖÐÊÇÊý¾ÝÇý¶¯ UI£¬Êý¾ÝÊÇºËÐÄÊÇÖ÷¶¯µÄ£»U1 ´ÓÊôÓÚÊý¾Ý²¢±í´ïÊý¾ÝÊÇ±»¶¯µÄ¡£
+Windows GUIå¼€å‘åŽ†å²ï¼Œå¯ä»¥æŠŠä¸Šè¿°è¿™äº›æ–¹æ³•è®ºåˆ†ä¸ºå››ä»£:
+- Win APTæ—¶ä»£ï¼šå‡½æ•°è°ƒç”¨ + Windows æ¶ˆæ¯å¤„ç†ã€‚
+- å°è£…æ—¶ä»£ï¼šä½¿ç”¨é¢å‘å¯¹è±¡ç†å¿µæŠŠ Win API å°è£…æˆç±»ï¼Œç”±æ¥è‡ªUIçš„æ¶ˆæ¯é©±åŠ¨ç¨‹åºå¤„ç†æ•°æ®ã€‚
+- ç»„ä»¶åŒ–æ—¶ä»£ï¼šä½¿ç”¨é¢å‘ç»„ä»¶ç†å¿µåœ¨ç±»çš„åŸºç¡€ä¸Šå°è£…æˆç»„ä»¶ï¼Œæ¶ˆæ¯è¢«å°è£…æˆäº‹ä»¶ï¼Œå˜æˆäº‹ä»¶é©±åŠ¨ã€‚
+- WPFæ—¶ä»£ï¼šåœ¨ç»„ä»¶åŒ–çš„åŸºç¡€ä¸Šï¼Œä½¿ç”¨ä¸“é—¨çš„ UI è®¾è®¡è¯­è¨€å¹¶å¼•å…¥ç”±æ•°æ®é©±åŠ¨ UI çš„ç†å¿µã€‚WPF ä¹‹æ‰€ä»¥èƒ½å¤Ÿç§°å¾—ä¸Šæ˜¯æ–°çš„ä¸€ä»£å…³é”®åœ¨äºŽä¸¤ç‚¹ï¼šç¬¬ä¸€ï¼Œä¹‹å‰å‡ ä»£ GU1 æ–¹æ³•è®ºåªèƒ½ä½¿ç”¨ç¼–ç¨‹è¯­è¨€è¿›è¡Œ UI è®¾è®¡ï¼Œè€Œ WPF å…·æœ‰ä¸“é—¨ç”¨äºŽ UI è®¾è®¡çš„ XAMLï¼›ç¬¬äºŒï¼Œå‰å‡ ä»£åœ¨ UI ä¸Žæ•°æ®çš„äº¤äº’æ–¹é¢æ˜¯ç”± Windows æ¶ˆæ¯åˆ°æŽ§ä»¶äº‹ä»¶ä¸€è„‰ç›¸æ‰¿ï¼Œå§‹ç»ˆæ˜¯æŠŠ UI æŽ§ä»¶æ”¾åœ¨ä¸»å¯¼åœ°ä½è€ŒæŠŠæ•°æ®æ”¾åœ¨è¢«åŠ¨åœ°ä½ï¼Œç”¨ UI æ¥é©±åŠ¨æ•°æ®çš„æ”¹å˜ï¼ŒWPF åœ¨äº‹ä»¶é©±åŠ¨çš„åŸºç¡€ä¸Šå¼•å…¥äº†æ•°æ®é©±åŠ¨ç•Œé¢çš„ç†å¿µï¼Œè®©æ•°æ®é‡å½’æ ¸å¿ƒåœ°ä½è€Œè®© UI å›žå½’æ•°æ®è¡¨è¾¾è€…çš„ä½ç½®ã€‚WPF ä¸­æ˜¯æ•°æ®é©±åŠ¨ UIï¼Œæ•°æ®æ˜¯æ ¸å¿ƒæ˜¯ä¸»åŠ¨çš„ï¼›UI ä»Žå±žäºŽæ•°æ®å¹¶è¡¨è¾¾æ•°æ®æ˜¯è¢«åŠ¨çš„ã€‚
