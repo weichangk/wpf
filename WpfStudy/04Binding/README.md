@@ -130,6 +130,9 @@ MultiBinding具有一个名为Bindings的属性，其类型是Collection<Binding
 - 第二种关系：TemplatedParent Template中的元素的属性绑定在Template使用者元素的属性上
 
 - 第三种关系：AncestorType UI元素的一个属性绑定在某个父元素的属性上
+    
+### ObjectDataProvider
+理想的情况下，上游程序员把类设计好，使用属性把数据暴露出来，下游程序员把这些类的实例作为Binding的Source，把属性作为Binding的Path来消费这些类。但很难保证一个类的所有数据都使用属性暴露出来，比如我们需要的数据可能是方法的返回值。而重新设计底层类的风险和成本会比较高，况且黑盒引用类库的情况下我们也不可能更改已经编译好的类，这时候就需要使用ObjectDataProvider来包装作为Binding源的数据对象了。
 
 ### TemplateBinding
 <p>
