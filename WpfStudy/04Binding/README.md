@@ -119,6 +119,32 @@ MultiBinding具有一个名为Bindings的属性，其类型是Collection<Binding
 它们汇集起来的数据将共同决定传往MultiBinding目标的数据。
 
 
+### RelativeSource绑定方式
+在WPF绑定的时候，指定绑定源时，有一种办法是使用RelativeSource。这种办法的意思是指当前元素和绑定源的位置关系。
+- 第一种关系: Self UI元素的一个属性绑定在自身的另一个属性上
+    <p>
+    source = {binding} 和 source = {binding RelativeSource={RelativeSource self},Path=DataContext}效果相同。
+    {binding} 不设定明确的绑定的source,这样binding就去从本控件类为开始根据可视树的层次结构自下而上查找不为空的Datacontext属性的值。{binding RelativeSource = {RelativeSource self},Path = DataContext}中 RelativeSource self 的含义为绑定的 source 为控件自身，这样 binding 就绑定了自身控件的 Datacontext，也可以绑定自身控件的其他属性。
+    </p>
+
+- 第二种关系：TemplatedParent Template中的元素的属性绑定在Template使用者元素的属性上
+
+- 第三种关系：AncestorType UI元素的一个属性绑定在某个父元素的属性上
+
+### TemplateBinding
+<p>
+TemplateBinding是Binding的一个轻量级版本，最主要的用途是内置在模板中绑定模板化元素的属性。
+
+Background="{TemplateBinding Foreground}"
+
+Background="{Binding Foreground, RelativeSource={RelativeSource TemplatedParent}}"
+
+TemplateBinding的数据绑定是单向的，从数据源到目标。
+
+TemplateBinding不能对数据对象进行自动转换，数据源和目标的数据类型不同时候，需要自己写转换器。
+</p>
+
+TemplateBinding 案例后续补充。。。
 
 
 
