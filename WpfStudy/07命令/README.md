@@ -25,5 +25,9 @@
 使用CommandParameter，命令源一定是实现了ICommandSource接口的对象，而ICommandSource有一个属性就是CommandParameter，如果把命令看作飞向目标的炮弹，那么CommandParameter就相当于装载在炮弹里面的“消息”。
 
 #### 命令与Binding的结合 
-控件那么多事件，可以让我们进行各种各样的不同操作，可控件只有一个Command属性、而命令库却有数10种命令，这样怎么可能使用这个唯一的Command属性来调用那么多种命令呢？答案是使用BIndding。前面已经说过，Binding作为一种间接的、不固定的赋值手段，可以让你有机会选择在某个条件下为目标赋特定的值（有时候需要借助Converter）。 例如一个Button所关联的命令有可能根据某些条件而改变，如：<Button x:Name="cmdBtn" Command="{Binding Path=ppp, Source=sss}" Content="Command"></Button>
+控件那么多事件，可以让我们进行各种各样的不同操作，可控件只有一个Command属性、而命令库却有数10种命令，这样怎么可能使用这个唯一的Command属性来调用那么多种命令呢？答案是使用BIndding。前面已经说过，Binding作为一种间接的、不固定的赋值手段，可以让你有机会选择在某个条件下为目标赋特定的值（有时候需要借助Converter）。 例如一个Button所关联的命令有可能根据某些条件而改变，如：
+```xml
+<Button x:Name="cmdBtn" Command="{Binding Path=ppp, Source=sss}" Content="Command"></Button>
+```
+
 
