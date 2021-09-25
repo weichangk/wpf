@@ -47,6 +47,73 @@
                     </Button>
                 </Grid>
             </TabItem>
+            
+            <TabItem PreviewKeyDown="SomeKeyPressed">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Ellipse Width="10" Height="10" Fill="DarkGray"/>
+                        <TextBlock>隧道事件</TextBlock>
+                    </StackPanel>
+                </TabItem.Header>
+                <Grid Margin="3" PreviewKeyDown="SomeKeyPressed">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                        <RowDefinition Height="auto"></RowDefinition>
+                    </Grid.RowDefinitions>
+
+                    <Label Margin="5" Background="AliceBlue" BorderBrush="Black"  BorderThickness="1" HorizontalAlignment="Left" PreviewKeyDown="SomeKeyPressed">
+                        <StackPanel PreviewKeyDown="SomeKeyPressed">
+                            <TextBlock Margin="3" PreviewKeyDown="SomeKeyPressed">
+                                Image and text lable
+                            </TextBlock>
+                            <Image Source="/06事件/grinning-face-emoji.png" Stretch="None" PreviewKeyDown="SomeKeyPressed"></Image>
+                            <DockPanel Margin="0,5,0,0" PreviewKeyDown="SomeKeyPressed">
+                                <TextBlock Margin="3" PreviewKeyDown="SomeKeyPressed">
+                                    Type Here:
+                                </TextBlock>
+                                <TextBox PreviewKeyDown="SomeKeyPressed"></TextBox>
+                            </DockPanel>
+
+                        </StackPanel>
+                    </Label>
+
+                    <ListBox Grid.Row="1" Margin="5" x:Name="lstMsesages2">
+
+                    </ListBox>
+                    <CheckBox Grid.Row="2" Margin="5" x:Name="chkHandle2">
+                        Handle first event
+                    </CheckBox>
+                    <Button x:Name="BtnClear2" Grid.Row="3" Margin="5" Padding="3">
+                        Clear list
+                    </Button>
+                </Grid>
+            </TabItem>
+
+            <TabItem x:Name="t3">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Ellipse Width="10" Height="10" Fill="DarkGray"/>
+                        <TextBlock>Original Source 与 Source</TextBlock>
+                    </StackPanel>
+                </TabItem.Header>
+                <Grid>
+                    <local:MyUserControl Margin="10" x:Name="myUserControl1"></local:MyUserControl>
+                </Grid>
+            </TabItem>
+
+            <TabItem x:Name="t4">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Ellipse Width="10" Height="10" Fill="DarkGray"/>
+                        <TextBlock>附加事件</TextBlock>
+                    </StackPanel>
+                </TabItem.Header>
+                <Grid>
+                    <Button Content="Button"  x:Name="attachEventBtn" Width="75" Height="75" Margin="10" Click="attachEvent_Click" />
+                </Grid>
+            </TabItem>
         </TabControl>
     </Grid>
 </Window>

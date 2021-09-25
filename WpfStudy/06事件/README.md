@@ -31,16 +31,6 @@ CLR事件本质上是一个用event关键字修饰的委托实例。每对消息
 - 直接(Direct)：只有源元素本身才有机会调用处理程序以进行响应。 这类似于窗体用于事件的Windows路由。 但是与标准 CLR 事件不同，直接路由事件支持类处理，并且可以使用 EventSetter EventTrigger 。
 - 隧道(Tunnel)：最初将调用元素树的根处的事件处理程序。 随后，路由事件将朝着路由事件的源节点元素（即引发路由事件的元素）方向，沿路由线路传播到后续的子元素。 合成控件的过程中通常会使用或处理隧道路由事件，通过这种方式，可以有意地禁止复合部件中的事件，或者将其替换为特定于整个控件的事件。 在 WPF 中提供的输入事件通常是以隧道/浮升成对实现的。 隧道事件有时又称作预览事件，这是由该对所使用的命名约定决定的。
 
-
-##### 使用WPF内置路由事件
-
-##### 自定义路由事件
-创建自定义路由事件三步骤
-- 声明并注册路由事件
-- 为路由事件添加CLR事件包装
-- 创建可以激发路由事件额方法
-
-
 ##### RoutedEventArgs的Source与OriginalSource
 路由事件是沿着 VisualTree 传递的。VisualTree 和 LogicalTree 的区别在于 LogicalTree 的叶子节点是构成用户界面的控件，VisualTree 连控件的细微细节结构也算上。路由事件的消息包含在 RoutedEventArgs 实例中，包含两个属性 Source 和 OriginalSource，这两属性都表示路由事件传递的起点（事件消息的源头），Source 表示 LogicalTree 上的消息源头，OriginalSource 表示 VisualTree上 的消息源头。
 
@@ -55,5 +45,14 @@ CLR事件本质上是一个用event关键字修饰的委托实例。每对消息
 
 - 事件的注册标准分别为AddHandle和RemoveHandle的方法，两个方法的参数数量一致都是两个第一个是DependencyObject 类型，第二个则是和注册时第三个参数相同的类型。
 
+- 像Button.Click这些路由事件，因为事件的宿主是界面元素、本身就是UI树上是一个结点，所以路由事件路由时的第一站就是事件的激发者。附加事件宿主不是UIElement的派生类，所以不能出现在UI树上的结点，而且附加事件的激发是借助UI元素实现的，因此，附加事件路由的第一站是激发它的元素。
+
+- 实际上很少会把附加事件定义在Student这种与业务逻辑相关的类中，一般都是定义在像Binding、Mouse、Keyboard这种全局的Helper类中。如果需要业务逻辑类的对象能发送出路由事件来怎么办？我们不是有Binding吗！如果程序架构设计的好（使用数据驱动UI），那么业务逻辑一定会使用Binding对象与UI元素关联，一旦与业务逻辑相关的对象实现了INotifyPropertyChanged接口并且Binding对象的NotifyOnSourceUpdated属性设为true，则Binding就会激发其SourceUpdated附加事件，此事件会在UI元素树上路由并被侦听者捕获。
+
+##### 自定义路由事件
+创建自定义路由事件三步骤
+- 声明并注册路由事件
+- 为路由事件添加CLR事件包装
+- 创建可以激发路由事件额方法
 
 
