@@ -114,6 +114,25 @@
                     <Button Content="Button"  x:Name="attachEventBtn" Width="75" Height="75" Margin="10" Click="attachEvent_Click" />
                 </Grid>
             </TabItem>
+
+            <TabItem x:Name="t5" local:TimeButton.ReportTime="ReportTimeHandle">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Ellipse Width="10" Height="10" Fill="DarkGray"/>
+                        <TextBlock>自定义路由事件</TextBlock>
+                    </StackPanel>
+                </TabItem.Header>
+                <Grid x:Name="t5_gd1" Margin="10" Background="AliceBlue" local:TimeButton.ReportTime="ReportTimeHandle">
+                    <Grid x:Name="t5_gd2" Margin="10" Background="AntiqueWhite" local:TimeButton.ReportTime="ReportTimeHandle">
+                        <Grid x:Name="t5_gd3" Margin="10" Background="Aqua" local:TimeButton.ReportTime="ReportTimeHandle">
+                            <StackPanel Margin="10" Background="Aquamarine" x:Name="t5_StackPanel1"  local:TimeButton.ReportTime="ReportTimeHandle">
+                                <ListBox x:Name="t5_ListBox1" MinHeight="30" MaxHeight="550"></ListBox>
+                                <local:TimeButton x:Name="t5_Button1" local:TimeButton.ReportTime="ReportTimeHandle" Content="Test" Width="100"></local:TimeButton>
+                            </StackPanel>
+                        </Grid>
+                    </Grid>
+                </Grid>
+            </TabItem>
         </TabControl>
     </Grid>
 </Window>

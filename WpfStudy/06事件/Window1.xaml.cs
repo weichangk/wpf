@@ -101,5 +101,19 @@ namespace WpfStudy._06事件
             this.attachEventBtn.RaiseEvent(arg);
         }
         #endregion
+
+        #region 自定义路由事件
+        private void ReportTimeHandle(object sender, ReportTimeRoutedEventArgs e)
+        {
+            FrameworkElement element = sender as FrameworkElement;
+            string timeStr = e.ClickTime.ToLongTimeString();
+            string content = string.Format("{0}到达{1}", timeStr, element.Name);
+            this.t5_ListBox1.Items.Add(content);
+            if (element == t5_gd2)
+            {
+                //e.Handled = true;
+            }
+        }
+        #endregion
     }
 }

@@ -21,6 +21,12 @@
 - MediaCommands
 - EditingCommands 
 
+#### 了解命令
+- 使用命令可以避免自己写代码判断控件是否可用以及添加快捷键。
+- 无论是探测命令是否执行还是命令送达目标，都会激发命令目标发送路由事件，这些路由事件会沿着U1元素树向上传递并最终被CommandBinding所捕捉。 当CommandBinding捕捉到CanExecute事件(判断命令执行的条件是否满足，并反馈给命令供其影响命令源的状态); 当捕捉到的是Executed事件(表示命令的Execute方法已经执行了，或说命令已经作用在了命令目标上, RoutedCommand的Execute方法不包含业务逻辑、只负责让命令目标激发Executed )。
+- 因为CanExecute事件的激发频率比较高，为了避免降低性能，在处理完后建议把e.Handled设为true。
+- CommandBinding一定要设置在命令目标的外围控件上，不然无法捕捉到CanExecute和Executed等路由事件。
+
 #### 命令参数 
 使用CommandParameter，命令源一定是实现了ICommandSource接口的对象，而ICommandSource有一个属性就是CommandParameter，如果把命令看作飞向目标的炮弹，那么CommandParameter就相当于装载在炮弹里面的“消息”。
 
