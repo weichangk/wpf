@@ -21,6 +21,16 @@
 - MediaCommands
 - EditingCommands 
 
+
+#### 了解ICommand接口和RoutedCommand
+WPF的命令是实现了ICommand接口的类。ICommand接口中包含有最重要的两个方法和一个事件：
+- Execute方法：命令执行，或者说命令作用于命令目标之上。需要注意的是现实世界中的命令是不会自己“执行”的，它只能“被执行”，而在这里执行变成了命令的方法。
+- CanExecute方法：在执行之前用来探知命令是否可被执行。
+- CanExecuteChanged事件：当命令可执行状态发生改变时，可激发此事件来通知其他对象。RoutedCommand就是这样一个实现了ICommand接口的类。RoutedCommand在实现ICommand接口时，并未向Execute和CanExecute方法中添加任何逻辑，也就是它是通用的与具体业务逻辑无关的。而是外围的CommandBinding捕获到命令目标受命令激发而发送的路由事件后在其CanExecute和Executed事件处理器中完成。
+- 带两个参数的Execute方法是对外公开的，可以使用第一个参数向命令传递一些数据，第二个参数是命令的目标，如果目标为null, Execute方法就把当前拥有焦点的控件作为命令的目标。该Execute方法会调用命令执行逻辑的核心-Executelmpl方法(Executelmpl是Execute Implement的缩写)，而这个方法内部就是“借用”命令目标的RaiseEvent把RoutedEvent发送出去。显然，这个事件会被外围的CommandBinding捕获到然后执行程序员预设的与业务相关的逻辑。
+- RoutedCommand源码地址：https://github1s.com/dotnet/wpf/blob/HEAD/src/Microsoft.DotNet.Wpf/src/PresentationCore/System/Windows/Input/Command/RoutedCommand.cs
+
+
 #### 了解命令
 - 使用命令可以避免自己写代码判断控件是否可用以及添加快捷键。
 - 无论是探测命令是否执行还是命令送达目标，都会激发命令目标发送路由事件，这些路由事件会沿着U1元素树向上传递并最终被CommandBinding所捕捉。 当CommandBinding捕捉到CanExecute事件(判断命令执行的条件是否满足，并反馈给命令供其影响命令源的状态); 当捕捉到的是Executed事件(表示命令的Execute方法已经执行了，或说命令已经作用在了命令目标上, RoutedCommand的Execute方法不包含业务逻辑、只负责让命令目标激发Executed )。
@@ -36,4 +46,11 @@
 <Button x:Name="cmdBtn" Command="{Binding Path=ppp, Source=sss}" Content="Command"></Button>
 ```
 
+#### 自定义命令
+自定义命令可以分两个层次来理解。第一个层次比较浅，指的是当WPF命令库中没有包含想要的命令时，我们就得声明定义自己的RoutedCommand实例。比如你想让命令目标在命令到达时发出笑声, WPF命令库里没有这个命令，那就可以定义一个名为Laugh的RoutedCommand实例。很难说这是真正意义上的“自定义命令”，这只是对RoutedCommand的使用。第二个层次是指从实现ICommand接口开始，定义自己的命令并且把某些业务逻辑也包含在命令之中，这才称得上是真正意义上的自定义命令。但是，WPF自带的命令源和CommandBinding就是专门为RoutedCommand而编写的，如果我们想使用自己的ICommand派生类就必须连命令源一起实现(即实现ICommandSource接口)。因此，为了简便地使用WPF这套成熟的体系，为了更高效率地“从零开始”打造自己的命令系统，需要我们根据项目的实际情况进行权衡。
+
+#### 命令和事件的区别
+事件的作用是发布、传播一些消息，消息传达到了接收者，事件的指令也就算完成了，至于如何响应事件送来的消息事件并不做任何限制，每个接收者可已用自己的行为来响应事件。也就是说，事件不具有约束力。命令和事件的区别就在于命令具有约束力。
+
+#### 命令，自定义命令的用途，命令和事件的区别，后续再进一步研究。。。
 

@@ -23,6 +23,12 @@ namespace WpfStudy._07命令
         {
             InitializeComponent();
             InitializeCommand();
+
+            #region 自定义命令
+            ClearCommand clearCommand = new ClearCommand();
+            this.myCommandSource1.Command = clearCommand;
+            this.myCommandSource1.CommandTarget = mniView1;
+            #endregion
         }
 
         #region 了解命令

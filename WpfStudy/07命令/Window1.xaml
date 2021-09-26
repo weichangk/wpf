@@ -53,6 +53,21 @@
                     </CommandBinding>
                 </TabItem.CommandBindings>
             </TabItem>
+
+            <TabItem x:Name="t3">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Ellipse Width="10" Height="10" Fill="DarkGray"/>
+                        <TextBlock>自定义命令</TextBlock>
+                    </StackPanel>
+                </TabItem.Header>
+                <StackPanel>
+                    <local:MyCommandSource  x:Name="myCommandSource1">
+                        <TextBlock Text="清除" Width="80" FontSize="16" TextAlignment="Center" Background="LightGreen"></TextBlock>
+                    </local:MyCommandSource>
+                    <local:MniView x:Name="mniView1"></local:MniView>
+                </StackPanel>
+            </TabItem>
         </TabControl>
     </Grid>
 </Window>
