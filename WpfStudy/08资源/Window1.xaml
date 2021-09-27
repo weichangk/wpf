@@ -1,0 +1,57 @@
+﻿<Window x:Class="WpfStudy._08资源.Window1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        xmlns:local="clr-namespace:WpfStudy._08资源"
+        mc:Ignorable="d"
+        Title="Window1" Height="450" Width="800">
+    <!--将System命名空间引入到xaml代码并映射为sys命名空间-->
+    <Window.Resources>
+        <ResourceDictionary>
+            <sys:String x:Key="t1_str">沉舟侧畔千帆过，病树前头万木春。</sys:String>
+            <sys:Double x:Key="t1_db">20.1415926</sys:Double>
+            <sys:Boolean x:Key="t1_bool">true</sys:Boolean>
+
+            <TextBlock x:Key="t2_res1">海上生明月</TextBlock>
+            <TextBlock x:Key="t2_res2">海上生明月</TextBlock>
+            
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid>
+        <TabControl>
+            <TabItem x:Name="t1">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Ellipse Width="10" Height="10" Fill="DarkGray"/>
+                        <TextBlock>WPF对象级资源的定义与查找</TextBlock>
+                    </StackPanel>
+                </TabItem.Header>
+                <StackPanel Background="LightBlue" x:Name="t1_sp1">
+                    <TextBlock Text="{StaticResource t1_str}" x:Name="t1_txt1"></TextBlock>
+                    <TextBlock x:Name="t1_txt2"></TextBlock>
+                    <TextBlock Height="{StaticResource t1_db}" Text="xxxxxx"></TextBlock>
+                    <CheckBox IsChecked="{StaticResource t1_bool}" Content="xxxxxxxx"></CheckBox>
+                    
+                    <!--<TextBlock Text="{StaticResource t1_db}"></TextBlock>-->
+                    <!--sys:数据类型在xaml中怎么进行转换？？？ 还没找到方法，后续补充。。。-->
+                </StackPanel>
+            </TabItem>
+            
+            <TabItem x:Name="t2">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Ellipse Width="10" Height="10" Fill="DarkGray"/>
+                        <TextBlock>动态资源和静态资源</TextBlock>
+                    </StackPanel>
+                </TabItem.Header>
+                <StackPanel Background="LightBlue" x:Name="t2_sp1">
+                    <Button Content="{StaticResource t2_res1}"></Button>
+                    <Button Content="{DynamicResource t2_res2}"></Button>
+                    <Button Content="Update" Margin="5" Click="T2_Btn1"></Button>
+                </StackPanel>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>

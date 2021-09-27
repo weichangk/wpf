@@ -13,7 +13,6 @@
   <ItemGroup>
     <Folder Include="01XAML语法\" />
     <Folder Include="02X命名空间\" />
-    <Folder Include="08资源\" />
     <Folder Include="09绘画\" />
   </ItemGroup>
 
