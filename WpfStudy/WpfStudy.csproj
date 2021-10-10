@@ -14,7 +14,8 @@
   <ItemGroup>
     <Folder Include="01XAML语法\" />
     <Folder Include="02X命名空间\" />
-    <Folder Include="09绘画\" />
+    <Folder Include="09模板\Image\" />
+    <Folder Include="10绘画\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -27,6 +28,12 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="08资源\Resources\yawning-face.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="09模板\Image\Aodi.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="09模板\Image\Aodi.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="img\Bomber.png">

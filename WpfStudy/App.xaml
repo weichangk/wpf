@@ -2,7 +2,7 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:WpfStudy"
-             StartupUri="08资源\Window1.xaml">
+             StartupUri="09模板\Window1.xaml">
     <Application.Resources>
          
     </Application.Resources>
