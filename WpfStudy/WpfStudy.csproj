@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <None Remove="06事件\grinning-face-emoji.png" />
+    <None Remove="08资源\Resources\grinning-face-emoji.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -18,10 +19,14 @@
 
   <ItemGroup>
     <Resource Include="06事件\grinning-face-emoji.png" />
+    <Resource Include="08资源\Resources\grinning-face-emoji.png" />
   </ItemGroup>
 
   <ItemGroup>
     <None Update="04Binding\02Binding源和路径\04Binding指定Source的方法\StudentList.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="08资源\Resources\yawning-face.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="img\Bomber.png">

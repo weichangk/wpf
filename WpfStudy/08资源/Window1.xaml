@@ -52,6 +52,25 @@
                     <Button Content="Update" Margin="5" Click="T2_Btn1"></Button>
                 </StackPanel>
             </TabItem>
+
+            <TabItem x:Name="t3">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Ellipse Width="10" Height="10" Fill="DarkGray"/>
+                        <TextBlock>使用Pack URL路径访问二进制资源</TextBlock>
+                    </StackPanel>
+                </TabItem.Header>
+                <StackPanel Background="LightBlue" x:Name="t3_sp1">
+                    <!--读取外部文件，如果不希望以资源的形式使用外部文件，可以把Build Action设为None，而把Copy to Output Directory设为Copy always-->
+                    <Image x:Name="t3_image1" Source="pack://SiteOfOrigin:,,,/08资源/Resources/yawning-face.png" Stretch="None"/>
+
+                    <!--读取二进制资源，外部文件编译进目标成为二进制资源-->
+                    <Image x:Name="t3_image2" Source="pack://application:,,,/08资源/Resources/grinning-face-emoji.png" Stretch="None"></Image>
+                    <Image x:Name="t3_image3" Source="/08资源/Resources/grinning-face-emoji.png" Stretch="None"></Image>
+                    <Image x:Name="t3_image4" Stretch="None"></Image>
+                </StackPanel>
+            </TabItem>
+            
         </TabControl>
     </Grid>
 </Window>

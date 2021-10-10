@@ -17,9 +17,24 @@ System命名空间引入到xaml代码并映射为sys命名空间：xmlns:sys="cl
 在c#中可通过this.Resources["key"]设置动态资源
 
 #### 向程序添加二进制资源
-
+如果想让外部文件编译进目标成为二进制资源，必须在属性窗口中把文件的BuildAction属性值设为Resource，并不是每种文件都会自动设为Resource，比如图片文件会, mp3文件就不会，一般情况下如果Build Action属性被设为Resource，则Copy to Output Directory属性就设为Do not copy。如果不希望以资源的形式使用外部文件，可以把Build Action设为None，而把Copy to Output Directory设为Copy always。
 
 #### 使用Pack URL路径访问二进制资源
+WPF引入了统一资源标识Uri(Unified Resource Identifier)来标识和访问资源。其中较为常见的情况是用Uri加载图像。Uri表达式的一般形式为：协议+授权+路径
+- 协议：pack://
+- 授权：有两种，一种用于访问编译时已经知道的文件，用application:///。一种用于访问编译时不知道、运行时才知道的文件，用siteoforigin:///。
+- 路径：分为绝对路径和相对路径。一般选用相对路径，普适性更强。
+- 访问二进制资源使用application:///。pack://application:,,,在XAML中可以省略，C#中不可以。
+- 访问外部文件使用siteoforigin:///。pack://SiteOfOrigin:,,,在XAML和C#中都不可以。
+```
+<Image x:Name="t3_image2" Source="pack://application:,,,/08资源/Resources/grinning-face-emoji.png" Stretch="None"></Image>
+<Image x:Name="t3_image3" Source="/08资源/Resources/grinning-face-emoji.png" Stretch="None"></Image>
+<Image x:Name="t3_image4" Stretch="None"></Image>
+
+t3_image1.Source = new BitmapImage(new Uri("pack://SiteOfOrigin:,,,/08资源/Resources/yawning-face.png"));
+t3_image4.Source = new BitmapImage(new Uri("pack://application:,,,/08资源/Resources/grinning-face-emoji.png"));
+```
+
 
 
 

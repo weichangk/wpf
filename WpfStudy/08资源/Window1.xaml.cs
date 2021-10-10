@@ -27,7 +27,9 @@ namespace WpfStudy._08资源
             t1_txt2.Text = txt.ToString();
 
 
+            //t3_image1.Source = new BitmapImage(new Uri("pack://SiteOfOrigin:,,,/08资源/Resources/yawning-face.png"));
 
+            t3_image4.Source = new BitmapImage(new Uri("pack://application:,,,/08资源/Resources/grinning-face-emoji.png"));
         }
 
         private void T2_Btn1(object sender, RoutedEventArgs e)
