@@ -44,6 +44,18 @@
                 </StackPanel>
             </Grid>
         </DataTemplate>
+
+        <ControlTemplate x:Key="TextBoxBaseControlTemplate1" TargetType="{x:Type TextBox}">
+            <Border x:Name="Bd" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}"  Background="{TemplateBinding Background}" CornerRadius="5">
+                <ScrollViewer x:Name="PART_ContentHost"/>
+            </Border>
+            <ControlTemplate.Triggers>
+                <Trigger Property="IsEnabled" Value="False">
+                    <Setter Property="Background" TargetName="Bd" Value="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"/>
+                    <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
     </Window.Resources>
 
     <Grid>
@@ -75,6 +87,32 @@
 
                     <!--ItemTemplate-"(StaticResource carListemViewTemplate)",是把一件数据的外衣交给ListBox,当ListBox.ItemsSource被赋值时, ListBox会为每个条目穿上这件外衣。这件外衣是以x:Key="carListitem ViewTemplate"标记的DataTemplate资源。-->
                     <ListBox x:Name="t2_listBoxCars" Width="180" Margin="5,0" ItemTemplate="{StaticResource carListItemViewTemplate}"></ListBox>
+                </StackPanel>
+            </TabItem>
+            <TabItem x:Name="t3">
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Ellipse Width="10" Height="10" Fill="DarkGray"/>
+                        <TextBlock>控件的外衣ControlTemplate</TextBlock>
+                    </StackPanel>
+                </TabItem.Header>
+                <StackPanel>
+                    <StackPanel.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                            <GradientStop Color="#FF3466A1" Offset="0.266"/>
+                            <GradientStop Color="White" Offset="0.996"/>
+                        </LinearGradientBrush>
+                    </StackPanel.Background>
+                    <Grid x:Name="t3_LayoutRoot">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="58" />
+                            <RowDefinition Height="48" />
+                            <RowDefinition Height="68" />
+                        </Grid.RowDefinitions>
+                        <TextBox Grid.Row="0" Height="30" Width="200" Margin="5" Template="{DynamicResource TextBoxBaseControlTemplate1}"></TextBox>
+                        <TextBox Grid.Row="1" Height="30" Width="200" Margin="5" Template="{DynamicResource TextBoxBaseControlTemplate1}"></TextBox>
+                        <Button Content="Test" Grid.Row="2" HorizontalAlignment="Center" Width="150" Height="30" BorderThickness="3" ClickMode="Release"></Button>
+                    </Grid>
                 </StackPanel>
             </TabItem>
         </TabControl>

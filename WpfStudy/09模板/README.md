@@ -7,3 +7,9 @@
 - ContentControl的ContentTemplate属性，相当于给ContentControl的内容穿衣服。
 - ItemsControl的ItemTemplate属性，相当于给ItemsControl的数据条目穿衣服。
 - GridViewColumn的CellTemplate属性，相当于给GridViewColumn单元格里的数据穿衣服。
+
+
+#### 控件的外衣ControlTemplate
+实际项目中, ControlTemplate主要有两大用武之地
+- 通过更换ControlTemplate改变控件外观，使之具有更优的用户使用体验及外观。使得换肤更灵活。
+- 借助ControlTemplate，程序员与设计师可以并行工作，程序员可以先用WPF标准控件进行编程，等设计师的工作完成后，只需把新的ControlTemplate应用到程序中就可以了。
