@@ -23,6 +23,17 @@ namespace WpfStudy._09模板
         {
             InitializeComponent();
             InitialCarList();
+
+
+            //XmlDataProvider xdp = new XmlDataProvider
+            //{
+                
+            //    Source = new Uri($"{System.AppDomain.CurrentDomain.BaseDirectory}04Binding\\02Binding源和路径\\04Binding指定Source的方法\\StudentList.xml"),
+            //    XPath = @"/StudentList/Student"
+            //};
+
+            //this.LsvGradeDataXml.DataContext = xdp;
+            //this.LsvGradeDataXml.SetBinding(ListView.ItemsSourceProperty, new Binding());
         }
 
         private void InitialCarList()

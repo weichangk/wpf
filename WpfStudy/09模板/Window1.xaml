@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfStudy._09模板"
+        xmlns:c="clr-namespace:System.Collections;assembly=mscorlib"
         mc:Ignorable="d"
         Title="Window1" Height="450" Width="800">
     <Window.Resources>
@@ -113,6 +114,106 @@
                         <TextBox Grid.Row="1" Height="30" Width="200" Margin="5" Template="{DynamicResource TextBoxBaseControlTemplate1}"></TextBox>
                         <Button Content="Test" Grid.Row="2" HorizontalAlignment="Center" Width="150" Height="30" BorderThickness="3" ClickMode="Release"></Button>
                     </Grid>
+                </StackPanel>
+            </TabItem>
+            <TabItem x:Name="t4">
+                <TabItem.Resources>
+                    <Style TargetType="{x:Type TextBox}">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type TextBox}">
+                                    <Border x:Name="Bd" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}"  Background="{TemplateBinding Background}" CornerRadius="5">
+                                        <ScrollViewer x:Name="PART_ContentHost"/>
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsEnabled" Value="False">
+                                            <Setter Property="Background" TargetName="Bd" Value="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"/>
+                                            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                        <Setter Property="Margin" Value="5"/>
+                        <Setter Property="BorderBrush" Value="Black"/>
+                        <Setter Property="Height" Value="25"/>
+                    </Style>
+                </TabItem.Resources>
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Ellipse Width="10" Height="10" Fill="DarkGray"/>
+                        <TextBlock>借助Style来实现ControlTemplate应用在所有目标上</TextBlock>
+                    </StackPanel>
+                </TabItem.Header>
+                <StackPanel>
+                    <TextBox></TextBox>
+                    <TextBox></TextBox>
+                    <TextBox Style="{x:Null}"></TextBox>
+                </StackPanel>
+            </TabItem>
+            
+            <TabItem x:Name="t5">
+                <TabItem.Resources>
+                    <c:ArrayList x:Key="ds">
+                        <local:Unit Year="2001 年" Price="100"/>
+                        <local:Unit Year="2002 年" Price="120"/>
+                        <local:Unit Year="2003 年" Price="140"/>
+                        <local:Unit Year="2004 年" Price="160"/>
+                        <local:Unit Year="2005 年" Price="180"/>
+                        <local:Unit Year="2006 年" Price="200"/>
+                    </c:ArrayList>
+                    <DataTemplate DataType="{x:Type local:Unit}">
+                        <Grid>
+                            <StackPanel Orientation="Horizontal">
+                                <Grid>
+                                    <Rectangle Stroke="Yellow" Fill="Orange" Width="{Binding Price}"/>
+                                    <TextBlock Text="{Binding Year}"/>
+                                </Grid>
+                                <TextBlock Text="{Binding Price}" Margin="5"/>
+                            </StackPanel>
+                        </Grid>
+                    </DataTemplate>
+                </TabItem.Resources>
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Ellipse Width="10" Height="10" Fill="DarkGray"/>
+                        <TextBlock>把DataTemplate应用在某个数据类型上的方法是设置DataTemplate的DataType属性</TextBlock>
+                    </StackPanel>
+                </TabItem.Header>
+                <StackPanel>
+                    <ListBox ItemsSource="{StaticResource ds}"/>
+                    <ComboBox ItemsSource="{StaticResource ds}"/>
+                </StackPanel>
+            </TabItem>
+            
+            <TabItem x:Name="t6">
+                <TabItem.Resources>
+                    <!--数据源-->
+                    <XmlDataProvider x:Key="t6_ds" Source="E:\wpf\github\wpf\WpfStudy\bin\Debug\net5.0-windows\09模板\GradeData.xml" XPath="Data/Grade"/>
+                    
+                    <!--年纪模板-->
+                    <HierarchicalDataTemplate DataType="Grade" ItemsSource="{Binding XPath=Class}">
+                        <TextBlock Text="{Binding XPath=@Name}"/>
+                    </HierarchicalDataTemplate>
+
+                    <!--班级模板-->
+                    <HierarchicalDataTemplate DataType="Class" ItemsSource="{Binding XPath=Group}">
+                        <RadioButton Content="{Binding XPath=@Name}" GroupName="gn"/>
+                    </HierarchicalDataTemplate>
+                    
+                    <!--小组模板-->
+                    <HierarchicalDataTemplate DataType="Group" ItemsSource="{Binding XPath=Student}">
+                        <CheckBox Content="{Binding XPath=@Name}"/>
+                    </HierarchicalDataTemplate>
+                </TabItem.Resources>
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Ellipse Width="10" Height="10" Fill="DarkGray"/>
+                        <TextBlock>使用Xml做数据源，设置DataTemplate的DataType属性</TextBlock>
+                    </StackPanel>
+                </TabItem.Header>
+                <StackPanel>
+                    <TreeView Margin="5" ItemsSource="{Binding Source={StaticResource t6_ds}}"/>
                 </StackPanel>
             </TabItem>
         </TabControl>
