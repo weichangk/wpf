@@ -189,7 +189,8 @@
             <TabItem x:Name="t6">
                 <TabItem.Resources>
                     <!--数据源-->
-                    <XmlDataProvider x:Key="t6_ds" Source="E:\wpf\github\wpf\WpfStudy\bin\Debug\net5.0-windows\09模板\GradeData.xml" XPath="Data/Grade"/>
+                    <!--<XmlDataProvider x:Key="t6_ds" Source="E:\wpf\github\wpf\WpfStudy\bin\Debug\net5.0-windows\09模板\GradeData.xml" XPath="Data/Grade"/>-->
+                    <XmlDataProvider x:Key="t6_ds" Source="pack://SiteOfOrigin:,,,/09模板/GradeData.xml" XPath="Data/Grade"/>
                     
                     <!--年纪模板-->
                     <HierarchicalDataTemplate DataType="Grade" ItemsSource="{Binding XPath=Class}">
@@ -214,6 +215,49 @@
                 </TabItem.Header>
                 <StackPanel>
                     <TreeView Margin="5" ItemsSource="{Binding Source={StaticResource t6_ds}}"/>
+                </StackPanel>
+            </TabItem>
+
+            <TabItem x:Name="t7">
+                <TabItem.Resources>
+                    <XmlDataProvider x:Key="t7_ds" Source="pack://SiteOfOrigin:,,,/09模板/OperationData.xml" XPath="Data/Operation"/>
+                    <HierarchicalDataTemplate DataType="Operation" ItemsSource="{Binding XPath=Operation}">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{Binding XPath=@Name}" Margin="10,0"/>
+                            <TextBlock Text="{Binding XPath=@Gesture}"/>
+                        </StackPanel>
+                    </HierarchicalDataTemplate>
+                </TabItem.Resources>
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Ellipse Width="10" Height="10" Fill="DarkGray"/>
+                        <TextBlock>使用Xml做数据源，为嵌套结构控件Menu设置DataTemplate的DataType属性</TextBlock>
+                    </StackPanel>
+                </TabItem.Header>
+                <StackPanel>
+                    <Menu ItemsSource="{Binding Source={StaticResource t7_ds}}"/>
+                </StackPanel>
+            </TabItem>
+
+            <TabItem x:Name="t8">
+                <TabItem.Resources>
+                    <ControlTemplate x:Key="t8_ct">
+                        <StackPanel Background="Orange">
+                            <TextBox x:Name="t8_txb1" Margin="5"/>
+                            <TextBox x:Name="t8_txb2" Margin="5,0"/>
+                            <TextBox x:Name="t8_txb3" Margin="5"/>
+                        </StackPanel>
+                    </ControlTemplate>
+                </TabItem.Resources>
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <Ellipse Width="10" Height="10" Fill="DarkGray"/>
+                        <TextBlock>访问ControlTemplate内部的控件</TextBlock>
+                    </StackPanel>
+                </TabItem.Header>
+                <StackPanel>
+                    <UserControl x:Name="t8_uc" Template="{StaticResource t8_ct}" Margin="5"/>
+                    <Button x:Name="t8_btn" Content="Find By Name" Width="200" Height="30" Click="t8_btn_Click"/>   
                 </StackPanel>
             </TabItem>
         </TabControl>

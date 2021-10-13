@@ -30,6 +30,9 @@
     <None Update="08资源\Resources\yawning-face.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="09模板\OperationData.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="09模板\GradeData.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

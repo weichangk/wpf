@@ -24,16 +24,6 @@ namespace WpfStudy._09模板
             InitializeComponent();
             InitialCarList();
 
-
-            //XmlDataProvider xdp = new XmlDataProvider
-            //{
-                
-            //    Source = new Uri($"{System.AppDomain.CurrentDomain.BaseDirectory}04Binding\\02Binding源和路径\\04Binding指定Source的方法\\StudentList.xml"),
-            //    XPath = @"/StudentList/Student"
-            //};
-
-            //this.LsvGradeDataXml.DataContext = xdp;
-            //this.LsvGradeDataXml.SetBinding(ListView.ItemsSourceProperty, new Binding());
         }
 
         private void InitialCarList()
@@ -63,6 +53,15 @@ namespace WpfStudy._09模板
             {
                 carDetailView1.Car = viewItem.Car;
             }
+        }
+
+        private void t8_btn_Click(object sender, RoutedEventArgs e)
+        {
+            TextBox tb = this.t8_uc.Template.FindName("t8_txb1", this.t8_uc) as TextBox;
+            tb.Text = "Hello WPF";
+            StackPanel sp = tb.Parent as StackPanel;
+            (sp.Children[1] as TextBox).Text = "11111111111";
+            (sp.Children[2] as TextBox).Text = "22222222222222";
         }
     }
 }

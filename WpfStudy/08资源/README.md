@@ -25,7 +25,7 @@ WPF引入了统一资源标识Uri(Unified Resource Identifier)来标识和访问
 - 授权：有两种，一种用于访问编译时已经知道的文件，用application:///。一种用于访问编译时不知道、运行时才知道的文件，用siteoforigin:///。
 - 路径：分为绝对路径和相对路径。一般选用相对路径，普适性更强。
 - 访问二进制资源使用application:///。pack://application:,,,在XAML中可以省略，C#中不可以。
-- 访问外部文件使用siteoforigin:///。pack://SiteOfOrigin:,,,在XAML和C#中都不可以。
+- 访问外部文件使用siteoforigin:///。pack://SiteOfOrigin:,,,在XAML和C#中都不可以省略。
 ```
 <Image x:Name="t3_image2" Source="pack://application:,,,/08资源/Resources/grinning-face-emoji.png" Stretch="None"></Image>
 <Image x:Name="t3_image3" Source="/08资源/Resources/grinning-face-emoji.png" Stretch="None"></Image>
